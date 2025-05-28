@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.cv-container {
+    display: flex;
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.left {
+    width: 35%;
+    background-color: #f0f0f8;
+    padding: 20px;
+}
+
+.left h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.left .poste {
+    background-color: #7f7fbf;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.left p, .left ul {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.left ul {
+    padding-left: 20px;
+}
+
+.left img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto;
+}
+
+.right {
+    width: 65%;
+    padding: 20px;
+}
+
+.right h2 {
+    font-size: 18px;
+    color: #333366;
+    border-bottom: 2px solid #333366;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+.right h3 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.right p, .right ul {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.right ul {
+    padding-left: 20px;
+}
+
+.contact-info {
+    margin-bottom: 15px;
+}

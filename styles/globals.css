@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-darkBg text-white font-mono;
+}
+
+h1, h2, h3 {
+  @apply font-extrabold;
+}
+
+button {
+  @apply transition-all duration-200;
+}
+
+/* Animation keyframes pour l'effet glow */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 8px #00ff90, 0 0 20px #00ff90;
+  }
+  50% {
+    box-shadow: 0 0 12px #00ff90, 0 0 30px #00ff90;
+  }
+}
+
+.glow {
+  animation: glow 2s infinite ease-in-out;
+}
