@@ -16,7 +16,7 @@ export default function ProjetsPage() {
         
       ],
       liveLink: "https://demo-projet.com",
-      codeLink: "https://github.com/tonprofil/projet-frontend",
+      codeLink: "https://github.com/sephyrax-lgtm/Phaenixjo.github.io",
     },
     {
       title: "Projet HTML & CSS",
