@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 
@@ -9,7 +10,7 @@ export default function ProjectCard({ title, description, techs, images, liveLin
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: 'spring', stiffness: 300 }}
-      className="bg-zinc-900 rounded-2xl overflow-hidden shadow-xl border border-zinc-800 flex max-w-2xl mx-auto p-4"
+      className="bg-zinc-900 rounded-2xl overflow-hidden shadow-xl border border-zinc-800 flex flex-col md:flex-row max-w-2xl mx-auto p-4"
     >
       {/* Contenu texte à gauche */}
       <div className="flex-1 p-4 flex flex-col">
@@ -28,32 +29,38 @@ export default function ProjectCard({ title, description, techs, images, liveLin
         </div>
 
         <div className="flex gap-4 mt-auto">
-          <a
-            href={liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-xs bg-green-600 hover:bg-green-500 px-3 py-1 rounded-md transition"
-          >
-            <ExternalLink size={14} /> Live
-          </a>
-          <a
-            href={codeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-xs bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded-md transition"
-          >
-            <Github size={14} /> Code
-          </a>
+          {liveLink && (
+            <a
+              href={liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs bg-green-600 hover:bg-green-500 px-3 py-1 rounded-md transition"
+            >
+              <ExternalLink size={14} /> Live
+            </a>
+          )}
+          {codeLink && (
+            <a
+              href={codeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded-md transition"
+            >
+              <Github size={14} /> Code
+            </a>
+          )}
         </div>
       </div>
 
       {/* Images à droite */}
-      <div className="w-48 flex flex-col gap-2 p-2">
+      <div className="w-full md:w-48 flex flex-col gap-2 p-2">
         {images.map((src, index) => (
-          <img
+          <Image
             key={index}
             src={src}
             alt={`${title} image ${index + 1}`}
+            width={192} // équivalent à w-48
+            height={128}
             className="w-full h-32 object-cover rounded-lg shadow-md"
           />
         ))}

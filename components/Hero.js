@@ -30,7 +30,7 @@ export default function Hero() {
       {/* Bouton Contact + CV */}
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         <a
-          href="/CV_Joseph_Akilabana.pdf"
+          href="/Autonomie (1).pdf"
           download
           className="border border-green-400 text-green-400 py-2 px-6 rounded hover:bg-green-400 hover:text-black transition"
         >
