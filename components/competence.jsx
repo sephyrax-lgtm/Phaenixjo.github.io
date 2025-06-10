@@ -4,8 +4,11 @@ import { motion } from 'framer-motion';
 import {
   FaHtml5, FaCss3Alt, FaJs, FaPhp, FaPython,
   FaLinux, FaWindows, FaDatabase, FaReact, FaJava,
-  FaMicrochip, FaNetworkWired
-} from 'react-icons/fa'; // Utilisé pour Arduino & Cisco de manière symbolique
+  FaMicrochip, FaNetworkWired, FaGithub, FaGitlab,
+  FaCode, FaLaptopCode
+} from 'react-icons/fa';
+
+import { SiNextdotjs, SiTailwindcss, } from 'react-icons/si';
 
 const skills = [
   { name: 'HTML', icon: <FaHtml5 className="text-orange-500" /> },
@@ -20,6 +23,11 @@ const skills = [
   { name: 'Java', icon: <FaJava className="text-red-500" /> },
   { name: 'Arduino', icon: <FaMicrochip className="text-green-500" /> },
   { name: 'Cisco Packet Tracer', icon: <FaNetworkWired className="text-blue-400" /> },
+  { name: 'GitHub', icon: <FaGithub className="text-gray-800" /> },
+  { name: 'GitLab', icon: <FaGitlab className="text-orange-600" /> },
+  { name: 'Next.js', icon: <SiNextdotjs className="text-black dark:text-white" /> },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
+  
 ];
 
 const containerVariants = {
@@ -76,7 +84,7 @@ export default function Competences() {
             whileTap={{ scale: 0.95 }}
           >
             <div className="text-5xl mb-3">{skill.icon}</div>
-            <p className="text-sm font-semibold">{skill.name}</p>
+            <p className="text-sm font-semibold text-center">{skill.name}</p>
           </motion.div>
         ))}
       </motion.div>
