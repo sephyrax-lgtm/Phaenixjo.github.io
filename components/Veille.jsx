@@ -11,6 +11,7 @@ const veilles = [
     date: "25/05/2025",
     type: "Article",
     url: "https://golem13.fr/ia-quantique-suscite-engouement-inedit-chez-entreprises-malgre-freins-persistants/",
+    resume: "L’IA quantique attire de plus en plus d’entreprises malgré des défis techniques persistants.",
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ const veilles = [
     date: "22/05/2025",
     type: "News",
     url: "https://www.servicesmobiles.fr/gemini-devoile-une-mise-a-jour-majeure-decouvrez-toutes-les-nouvelles-fonctionnalites-de-son-ia-105248",
+    resume: "Google améliore son IA Gemini, plus performante en langage, code et traitement d’image.",
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const veilles = [
     date: "20/05/2025",
     type: "Analyse",
     url: "https://www.techniques-ingenieur.fr/actualite/articles/l-intelligence-artificielle-un-outil-d-evolution-pour-les-industries-4-0-146043/",
+    resume: "L’IA transforme l’industrie via l’automatisation, la maintenance prédictive et l’analyse temps réel.",
   },
   {
     id: 4,
@@ -35,6 +38,7 @@ const veilles = [
     date: "25/05/2025",
     type: "Article",
     url: "https://lapresse.tn/2025/05/25/lintelligence-artificielle-au-service-de-lassurance-la-technologie-qui-fait-la-difference/",
+    resume: "Les assurances utilisent l’IA pour mieux évaluer les risques et accélérer la gestion des dossiers.",
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const veilles = [
     date: "23/05/2025",
     type: "Tendance",
     url: "https://www.tablette-tactile.net/tendances/voici-les-3-metiers-qui-survivront-a-lia-selon-bill-gates-verifiez-si-vous-en-faites-partie-1114654/",
+    resume: "Certains métiers à forte composante humaine ou créative resteront hors de portée de l’IA.",
   },
   {
     id: 6,
@@ -51,6 +56,7 @@ const veilles = [
     date: "24/05/2025",
     type: "News",
     url: "https://trustmyscience.com/openai-conclut-accord-gouvernement-americain-utiliser-ia-securite-armes-nucleaires/",
+    resume: "OpenAI développe une IA capable de détecter les anomalies dans les systèmes nucléaires critiques.",
   },
 ];
 
@@ -61,6 +67,30 @@ export default function Veille() {
         🚀 Veille Technologique — L’Évolution de l’IA
       </h2>
 
+      {/* Description de la veille */}
+      <div className="text-white space-y-2 text-sm bg-slate-800 p-4 rounded-xl border border-cyan-400/30">
+        <p>
+          La veille technologique consiste à suivre les évolutions et innovations dans un domaine précis. 
+          En tant qu’étudiant en BTS SIO option SLAM (Solutions Logicielles et Applications Métiers), je m’intéresse 
+          particulièrement à l’intelligence artificielle, car elle a un impact direct sur le développement logiciel et 
+          les technologies que je suis amené à utiliser.
+        </p>
+      </div>
+
+      {/* Méthodologie utilisée */}
+      <div className="text-white space-y-2 text-sm bg-slate-800 p-4 rounded-xl border border-cyan-400/30">
+        <h3 className="text-xl font-semibold mb-2">📂 Ma méthode de veille</h3>
+        <p>
+          J’utilise des outils comme <strong>Google Alertes</strong> et <strong>Feedly</strong> pour suivre régulièrement 
+          les nouveautés en intelligence artificielle, cybersécurité, développement web, cloud computing et langages de programmation.
+        </p>
+        <p>
+          La veille est effectuée chaque semaine, et les informations sont sélectionnées en fonction de leur fiabilité, de leur 
+          actualité et de leur lien avec les enjeux de développement.
+        </p>
+      </div>
+
+      {/* Résultats de la veille sous forme de cartes animées */}
       <div className="grid gap-6 md:grid-cols-2">
         {veilles.map((item, index) => (
           <motion.div
@@ -83,7 +113,7 @@ export default function Veille() {
               </span>
             </div>
             <p className="text-sm text-cyan-200">{item.source} • {item.date}</p>
-
+            <p className="text-sm mt-2">{item.resume}</p>
             <a
               href={item.url}
               target="_blank"
