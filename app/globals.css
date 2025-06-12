@@ -1,17 +1,12 @@
 @import "tailwindcss";
 
+/* Thème clair */
 :root {
   --background: #3a0b0b;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Thème sombre */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,20 +14,23 @@
   }
 }
 
+/* Fond et police globale */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Animation spin lente */
 @keyframes spin-slow {
-from {
-transform: rotate(0deg);
-}
-to {
-transform: rotate(360deg);
-}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-spin-slow {
-animation: spin-slow 10s linear infinite;
+  animation: spin-slow 15s linear infinite;
 }
