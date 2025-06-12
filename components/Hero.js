@@ -8,7 +8,7 @@ export default function Hero() {
       className="min-h-screen flex flex-col items-center justify-center bg-black text-white text-center px-4 font-mono py-20"
     >
       {/* Conteneur un peu plus petit */}
-      <div className="relative w-56 h-56 mb-8">
+      <div className="relative w-57 h-57 mb-8">
         {/* Cercle composé de 8 segments */}
         {[...Array(8)].map((_, i) => (
           <div
