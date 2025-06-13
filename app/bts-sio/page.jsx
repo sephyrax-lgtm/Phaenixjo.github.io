@@ -1,6 +1,7 @@
 'use client';
 
 import Tab from '../../components/tab.jsx'; // ✅ On garde uniquement Tab ici
+import Link from 'next/link';
 
 const diplomeFormation = [
   { titre: "BTS SIO", etablissement: "Lycée X", année: "2022-2024" },
@@ -48,6 +49,15 @@ export default function Btssiopage() {
         certifications={certifications}
         experience={experience}
       />
-    </div>
+    
+    {/* Bouton Retour à l'accueil */}
+      <div className="mt-16 text-center">
+        <Link href="/">
+          <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded">
+            ← Retour à l'accueil
+          </button>
+        </Link>
+      </div>
+      </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
+import Link from 'next/link'; // ← Ajout de l'import pour Link
 
 export default function ProjetsPage() {
   const projects = [
@@ -13,7 +14,6 @@ export default function ProjetsPage() {
       images: [
         "/images/projet image.png",
         "/images/projet image1.png"
-        
       ],
       liveLink: "https://demo-projet.com",
       codeLink: "https://github.com/tonprofil/projet-frontend",
@@ -23,9 +23,9 @@ export default function ProjetsPage() {
       description:
         "Un petit projet statique pour pratiquer les bases du HTML et du CSS. Création de CV avec HTML et CSS.",
       techs: ["HTML", "CSS"],
-      images: ["/images/imagepro.png"], // capture à placer dans /public/images
-      liveLink: "/projet-html-css/", // accès local via public/
-      codeLink: "", // ou lien vers GitHub si tu veux
+      images: ["/images/imagepro.png"],
+      liveLink: "/projet-html-css/",
+      codeLink: "",
     },
   ];
 
@@ -46,6 +46,15 @@ export default function ProjetsPage() {
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
+        </div>
+
+        {/* Bouton Retour à l'accueil */}
+        <div className="mt-16 text-center">
+          <Link href="/">
+            <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded">
+              ← Retour à l'accueil
+            </button>
+          </Link>
         </div>
       </div>
     </main>

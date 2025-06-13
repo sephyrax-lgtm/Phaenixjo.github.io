@@ -2,12 +2,13 @@
 
 import Contact from './Contact';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function ContactPage() {
   return (
     <main className="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen px-4 py-20 flex flex-col items-center text-white">
       
-      {/* Animation d’intro */}
+      {/* Animation d’introduction */}
       <motion.div
         className="max-w-3xl text-center space-y-6 mb-16"
         initial={{ opacity: 0, y: 40 }}
@@ -20,10 +21,9 @@ export default function ContactPage() {
         <h2 className="text-xl md:text-3xl font-light text-gray-300">
           Développeur Web & étudiant en BTS SIO SLAM
         </h2>
-        
       </motion.div>
 
-      {/* Formulaire de contact stylé */}
+      {/* Formulaire de contact stylisé */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -32,6 +32,16 @@ export default function ContactPage() {
       >
         <Contact />
       </motion.div>
+
+      {/* Bouton Retour à l'accueil */}
+      <div className="mt-16 text-center">
+        <Link href="/">
+          <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded">
+            ← Retour à l'accueil
+          </button>
+        </Link>
+      </div>
+      
     </main>
   );
 }
