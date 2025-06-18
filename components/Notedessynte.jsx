@@ -7,7 +7,7 @@ const notes = [
     titre: 'Année 1 – Entreprise SAS Heal Process',
     description:
       "Reconstruction du portfolio avec une interface moderne, plus interactive et une narration de mon évolution.",
-    lien: 'https://docs.google.com/document/d/1xJ-4qIuc-ab60JUCDPcsqkRAS0sVnl7S8rqSFJL7On8/edit?tab=t.0',
+    lien: '/Note de synthèse 1er Joseph akilabana.pdf',
     couleur: 'from-green-400 via-blue-500 to-purple-500',
   },
   {
