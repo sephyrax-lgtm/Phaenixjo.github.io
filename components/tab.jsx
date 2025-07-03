@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
+
 import DiplomeFormation from './Diplome';
 import Competences from './competence';
 import NotesSynthese from './Notedessynte';
 import VeilleTechnologique from './Veille';
 import Certifications from './Certification';
+import Experience from './experience'; // ← IMPORT AJOUTÉ
 
 const diplomeFormationData = [
   {
@@ -38,6 +40,7 @@ export default function Tab({
 
   const tabs = [
     { value: 'formation', label: 'Formation' },
+    { value: 'experience', label: 'Expériences' }, // ← Onglet Expériences ajouté
     { value: 'competences', label: 'Compétences' },
     { value: 'veille', label: 'Veille Techno' },
     { value: 'certifications', label: 'Certifications' },
@@ -62,7 +65,7 @@ export default function Tab({
         transition={{ delay: 0.3, duration: 0.8 }}
       >
         Passionné par le développement, rigoureux et curieux, je me forme en BTS SIO option SLAM.
-        Découvrez mes compétences et formations  à travers les onglets ci-dessous.
+        Découvrez mes compétences, formations et expériences à travers les onglets ci-dessous.
       </motion.p>
 
       <div className="flex w-full max-w-6xl gap-8">
@@ -94,6 +97,19 @@ export default function Tab({
                   transition={{ duration: 0.5 }}
                 >
                   <DiplomeFormation data={diplomeFormationData} />
+                </motion.div>
+              )}
+
+              {activeTab === 'experience' && (
+                <motion.div
+                  key="experience"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-[#1e1e1e] p-6 rounded-lg"
+                >
+                  <Experience />
                 </motion.div>
               )}
 
