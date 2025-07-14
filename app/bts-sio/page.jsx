@@ -1,6 +1,6 @@
 'use client';
 
-import Tab from '../../components/tab.jsx'; // ✅ On garde uniquement Tab ici
+import Tab from '../../components/tab.jsx';
 import Link from 'next/link';
 
 const diplomeFormation = [
@@ -40,24 +40,30 @@ const experience = ["Stage développeur 2023", "Projet personnel React"];
 
 export default function Btssiopage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <Tab
-        diplomeFormation={diplomeFormation}
-        competences={competences}
-        notesSynthese={notesSynthese}
-        veilleTechnologique={veilleTechnologique}
-        certifications={certifications}
-        experience={experience}
-      />
-    
-    {/* Bouton Retour à l'accueil */}
-      <div className="mt-16 text-center">
-        <Link href="/">
-          <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded">
-            ← Retour à l'accueil
-          </button>
-        </Link>
+    <div className="relative min-h-screen bg-black text-white font-mono">
+      {/* Fond animé style code */}
+      <div className="code-background fixed inset-0 z-0" />
+
+      {/* Contenu principal */}
+      <div className="relative z-10 px-4 py-12 max-w-screen-xl mx-auto">
+        <Tab
+          diplomeFormation={diplomeFormation}
+          competences={competences}
+          notesSynthese={notesSynthese}
+          veilleTechnologique={veilleTechnologique}
+          certifications={certifications}
+          experience={experience}
+        />
+
+        {/* Bouton Retour à l'accueil */}
+        <div className="mt-16 text-center">
+          <Link href="/">
+            <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-6 rounded transition duration-300">
+              ← Retour à l'accueil
+            </button>
+          </Link>
+        </div>
       </div>
-      </div>
+    </div>
   );
 }
