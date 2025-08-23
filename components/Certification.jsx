@@ -42,7 +42,7 @@ export default function Certification() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative z-10 text-4xl md:text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-white to-green-400 animate-glow"
       >
-        <span className="inline-block tracking-wide animate-text-glow">⚡ Certifications</span>
+        <span className="inline-block tracking-wide animate-text-glow">Mes Certifications</span>
       </motion.h2>
 
       {/* Grid Cards */}

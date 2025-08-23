@@ -2,15 +2,15 @@
 
 /* Thème clair */
 :root {
-  --background: #3a0b0b;
-  --foreground: #171717;
+  --background: #000000;   /* Noir */
+  --foreground: #ffffff;   /* Blanc pour bien contraster */
 }
 
 /* Thème sombre */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-
+    --background: #000000;  /* Toujours noir */
+    --foreground: #ffffff;  /* Texte blanc */
   }
 }
 
