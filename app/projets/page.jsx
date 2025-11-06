@@ -13,7 +13,8 @@ export default function ProjetsPage() {
       techs: ["Next.js", "Tailwind", "JavaScript", "React"],
       images: [
         "/images/projet image.png",
-        "/images/projet image1.png"
+        "/images/projet image1.png",
+        
       ],
       liveLink: "https://demo-projet.com",
       codeLink: "https://github.com/tonprofil/projet-frontend",
@@ -24,6 +25,15 @@ export default function ProjetsPage() {
         "Un petit projet statique pour pratiquer les bases du HTML et du CSS. Création de CV avec HTML et CSS.",
       techs: ["HTML", "CSS"],
       images: ["/images/imagepro.png"],
+      liveLink: "/projet-html-css/",
+      codeLink: "",
+    },
+    {
+      title: "Vue.js & Tailwind & Pinia",
+      description:
+        "GSH Social est une application web de réseau social qui permet aux utilisateurs de publier des messages, d’aimer et de commenter les publications des autres, tout en interagissant en temps réel grâce à une base de données connectée.",
+      techs: ["Vue.js", "Tailwind", "Pinia"],
+      images: ["/images/image2.png"],
       liveLink: "/projet-html-css/",
       codeLink: "",
     },
