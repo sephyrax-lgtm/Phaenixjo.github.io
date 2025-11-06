@@ -9,7 +9,9 @@ const certifications = [
   { id: 4, nom: "Apprendre à programmer avec JavaScript", organisme: "OpenClassrooms", date: "2025" },
   { id: 5, nom: "PIX", organisme: "PIX", date: "2023" },
   { id: 6, nom: "Certification ANSSI", organisme: "ANSSI", date: "2024" },
-  { id: 7, nom: "Atelier RGPD", organisme: "CNIL", date: "2025" }
+  { id: 7, nom: "Atelier RGPD", organisme: "CNIL", date: "2025" },
+  { id: 8, nom: "Initiez-vous à Linux", organisme: "OpenClassrooms", date: "2025" },
+  { id: 9, nom: "Concevez votre réseau TCP/IP", organisme: "OpenClassrooms", date: "2025" },
 ];
 
 const container = {

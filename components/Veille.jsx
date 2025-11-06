@@ -70,10 +70,10 @@ export default function Veille() {
       {/* Description de la veille */}
       <div className="text-white space-y-2 text-sm bg-slate-800 p-4 rounded-xl border border-cyan-400/30">
         <p>
-          La veille technologique consiste à suivre les évolutions et innovations dans un domaine précis. 
+          La veille technologique consiste à suivre les évolutions et innovations dans un domaine précis.
           En tant qu’étudiant en BTS SIO option SLAM (Solutions Logicielles et Applications Métiers), je m’intéresse 
-          particulièrement à l’intelligence artificielle, car elle a un impact direct sur le développement logiciel et 
-          les technologies que je suis amené à utiliser.
+          particulièrement aux ordinateurs quantiques, car ils ouvrent de nouvelles perspectives dans le domaine du calcul et du développement logiciel.
+          Cette technologie, encore émergente, pourrait transformer en profondeur la manière dont nous concevons, sécurisons et optimisons les applications informatiques.
         </p>
       </div>
 
