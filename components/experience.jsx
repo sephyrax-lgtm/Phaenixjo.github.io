@@ -1,7 +1,10 @@
-'use client'; // Pour App Router Next.js
+'use client';
 
 import { motion } from 'framer-motion';
 import React from 'react';
+
+// 🌟 VERSION ULTIME — élégance + modernité + couleurs + profondeur
+// Design : timeline premium, gradients subtils, glassmorphism léché
 
 const experiences = [
   {
@@ -10,87 +13,113 @@ const experiences = [
   },
   {
     date: "19 mai 2025 - 21 juin 2025",
-    description: "Stage chez SAS HealProcess • Mitry-Mory",
+    description: `Stage chez SAS HealProcess • Mitry-Mory
+
+• Gestion de versions : formation et pratique Git / GitHub
+• Développement front-end : React
+• JavaScript : utilisation avancée des propriétés (notation point / notation crochets)
+• Montée en compétence sur Node.js pour le backend
+• Notions en SQL : manipulation et requêtes de données`,
   },
   {
     date: "07 juillet 2025 - 02 juillet 2025",
-    description: "Agent de propreté urbaine • Brétigny-sur-Orge",
+    description: `Agent de propreté urbaine • Brétigny-sur-Orge
+
+• Chargement et déchargement des bennes à ordures
+• Tri sélectif et respect des consignes de recyclage
+• Nettoyage et désinfection des conteneurs, bacs et véhicules de collecte`,
   },
   {
     date: "Mars 2024",
-    description: "Bénévole - Carnaval • Mairie de Brétigny-sur-Orge",
+    description: `Bénévole - Carnaval • Brétigny-sur-Orge
+
+• Aider à l’accueil des participants et à l’organisation des repas et des pauses
+• Accompagnement du groupe pendant le défilé`,
   },
 ];
 
 const container = {
   hidden: {},
   show: {
-    transition: {
-      staggerChildren: 0.25,
-    },
+    transition: { staggerChildren: 0.25 },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 40, rotateX: 15 },
-  show: {
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
-  },
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
 };
 
-const Experience = () => {
+export default function Experience() {
   return (
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.25 }}
       variants={container}
-      className="relative isolate overflow-hidden min-h-screen bg-gradient-to-br from-black via-[#0f0f0f] to-[#1a1a1a] px-6 py-20 md:px-20 text-white rounded-lg shadow-xl border border-green-800/20"
+      className="relative min-h-screen px-12 py-20 rounded-3xl text-white
+                 bg-gradient-to-br from-[#0e0e12] via-[#15151a] to-[#1b1b20]
+                 border border-neutral-700
+                 shadow-[0_0_40px_rgba(80,200,120,0.12)]"
     >
-      {/* Glow Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[150%] h-80 bg-green-400 opacity-5 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-green-300 blur-[100px] opacity-10" />
+
+      {/* GLOW EN ARRIÈRE-PLAN — discret mais élégant */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[45%] h-[250px]
+                        bg-green-400 opacity-10 blur-[120px]"></div>
+        <div className="absolute bottom-[-120px] right-10 w-[35%] h-[220px]
+                        bg-blue-400 opacity-8 blur-[140px]"></div>
       </div>
 
-      {/* Titre principal */}
+      {/* TITRE */}
       <motion.h2
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        className="relative z-10 text-center text-4xl md:text-5xl font-bold mb-20 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-white animate-pulse"
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="relative z-10 text-center text-4xl font-extrabold tracking-wide
+                   bg-clip-text text-transparent
+                   bg-gradient-to-r from-green-300 via-blue-300 to-white"
       >
         Expériences Professionnelles
       </motion.h2>
 
-      {/* Ligne temporelle */}
-      <div className="relative z-10 border-l-2 border-green-500 pl-6 space-y-16">
-        {experiences.map((exp, idx) => (
-          <motion.div
-            key={idx}
-            variants={item}
-            className="group relative transition-transform duration-300 hover:scale-[1.02]"
-          >
-            <span className="absolute -left-[12px] top-1 w-5 h-5 bg-green-500 rounded-full border-2 border-black shadow-lg transition-transform group-hover:scale-125" />
-            <div className="bg-[#1b1b1b]/60 backdrop-blur-md border border-green-500/20 shadow-inner p-6 rounded-lg transition-colors duration-300 hover:bg-[#1f1f1f]">
-              <h3 className="text-lg font-semibold text-green-300 group-hover:text-green-400 transition-colors">
-                {exp.date}
-              </h3>
-              <p className="text-gray-300 group-hover:text-white transition-colors duration-300 mt-1">
-                {exp.description}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+      {/* TIMELINE */}
+      <div className="relative z-10 mt-20">
+        {/* barre */}
+        <div className="absolute left-4 top-0 bottom-0 w-[4px]
+                        bg-gradient-to-b from-green-400 via-blue-400 to-transparent"></div>
+
+        <div className="space-y-16">
+          {experiences.map((exp, idx) => (
+            <motion.div key={idx} variants={item} className="relative pl-20">
+
+              {/* point */}
+              <div className="absolute left-0 top-0 w-12 h-12 rounded-full
+                              bg-[#1a1a1f] border border-green-400/60
+                              flex items-center justify-center">
+                <div className="w-4 h-4 bg-green-400 rounded-full"></div>
+              </div>
+
+              {/* carte */}
+              <div className="backdrop-blur-lg bg-[#111216]/70 p-7 rounded-2xl
+                              border border-neutral-700
+                              hover:border-green-400/50 transition-all duration-300">
+
+                <h3 className="text-xl font-bold text-green-300">
+                  {exp.date}
+                </h3>
+
+                <p className="mt-4 text-neutral-300 leading-relaxed whitespace-pre-line">
+                  {exp.description}
+                </p>
+
+              </div>
+
+            </motion.div>
+          ))}
+        </div>
       </div>
 
-      {/* Cercle lumineux */}
-      <div className="absolute left-1/2 bottom-[-200px] w-[500px] h-[500px] bg-green-400 rounded-full opacity-10 blur-[160px] -translate-x-1/2" />
     </motion.section>
   );
-};
-
-export default Experience;
+}
