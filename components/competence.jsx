@@ -5,7 +5,7 @@ import {
   FaHtml5, FaCss3Alt, FaJs, FaPhp, FaPython,
   FaLinux, FaWindows, FaDatabase, FaReact, FaJava,
   FaMicrochip, FaNetworkWired, FaGithub,
-  FaDocker, FaVuejs
+  FaDocker, FaVuejs, FaGitAlt
 } from 'react-icons/fa';
 
 import {
@@ -30,9 +30,10 @@ const skills = [
   { name: 'Java', icon: <FaJava className="text-red-500" /> },
   { name: 'Docker', icon: <FaDocker className="text-blue-400" /> },
   { name: 'Kubernetes', icon: <SiKubernetes className="text-blue-500" /> },
+  { name: 'Git', icon: <FaGitAlt className="text-orange-600" /> },
+  { name: 'GitHub', icon: <FaGithub className="text-gray-800" /> },
   { name: 'Arduino', icon: <FaMicrochip className="text-green-500" /> },
   { name: 'Cisco Packet Tracer', icon: <FaNetworkWired className="text-blue-400" /> },
-  { name: 'GitHub', icon: <FaGithub className="text-gray-800" /> },
   { name: 'Next.js', icon: <SiNextdotjs className="text-black dark:text-white" /> },
   { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
 ];
