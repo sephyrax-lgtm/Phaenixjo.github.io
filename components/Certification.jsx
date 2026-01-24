@@ -12,6 +12,9 @@ const certifications = [
   { id: 7, nom: "Atelier RGPD", organisme: "CNIL", date: "2025" },
   { id: 8, nom: "Initiez-vous à Linux", organisme: "OpenClassrooms", date: "2025" },
   { id: 9, nom: "Concevez votre réseau TCP/IP", organisme: "OpenClassrooms", date: "2025" },
+  { id: 10, nom: "Concevez votre site web avec PHP et MySQL", organisme: "OpenClassrooms", date: "2026" },
+  { id: 11, nom: "Maîtrisez vos applications et réseaux TCP/IP", organisme: "OpenClassrooms", date: "2026" },
+  { id: 12, nom: "Administrez un système Linux", organisme: "OpenClassrooms", date: "2026" },
 ];
 
 const container = {

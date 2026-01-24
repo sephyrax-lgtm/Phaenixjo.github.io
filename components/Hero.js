@@ -46,7 +46,7 @@ export default function Hero() {
       {/* Bouton CV */}
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         <a
-          href="/Autonomie (1).pdf"
+          href="\CV_2026-01-24_Joseph_Akilabana.pdf"
           download
           className="border border-green-400 text-green-400 py-2 px-6 rounded hover:bg-green-400 hover:text-black transition"
         >
@@ -96,11 +96,11 @@ export default function Hero() {
           <p className="text-gray-400">Projets réalisés</p>
         </div>
         <div>
-          <p className="text-3xl font-bold">10+</p>
+          <p className="text-3xl font-bold">12+</p>
           <p className="text-gray-400">Technologies maîtrisées</p>
         </div>
         <div>
-          <p className="text-3xl font-bold">500+</p>
+          <p className="text-3xl font-bold">100+</p>
           <p className="text-gray-400">Commits de code</p>
         </div>
       </div>

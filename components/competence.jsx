@@ -4,11 +4,16 @@ import { motion } from 'framer-motion';
 import {
   FaHtml5, FaCss3Alt, FaJs, FaPhp, FaPython,
   FaLinux, FaWindows, FaDatabase, FaReact, FaJava,
-  FaMicrochip, FaNetworkWired, FaGithub, FaGitlab,
-  FaCode, FaLaptopCode
+  FaMicrochip, FaNetworkWired, FaGithub,
+  FaDocker, FaVuejs
 } from 'react-icons/fa';
 
-import { SiNextdotjs, SiTailwindcss, } from 'react-icons/si';
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiKubernetes,
+  SiMariadb
+} from 'react-icons/si';
 
 const skills = [
   { name: 'HTML', icon: <FaHtml5 className="text-orange-500" /> },
@@ -19,15 +24,17 @@ const skills = [
   { name: 'Linux', icon: <FaLinux className="text-gray-300" /> },
   { name: 'Windows', icon: <FaWindows className="text-blue-600" /> },
   { name: 'SQL', icon: <FaDatabase className="text-purple-500" /> },
+  { name: 'MariaDB', icon: <SiMariadb className="text-blue-700" /> },
   { name: 'React', icon: <FaReact className="text-cyan-400" /> },
+  { name: 'Vue.js', icon: <FaVuejs className="text-green-500" /> },
   { name: 'Java', icon: <FaJava className="text-red-500" /> },
+  { name: 'Docker', icon: <FaDocker className="text-blue-400" /> },
+  { name: 'Kubernetes', icon: <SiKubernetes className="text-blue-500" /> },
   { name: 'Arduino', icon: <FaMicrochip className="text-green-500" /> },
   { name: 'Cisco Packet Tracer', icon: <FaNetworkWired className="text-blue-400" /> },
   { name: 'GitHub', icon: <FaGithub className="text-gray-800" /> },
-  { name: 'GitLab', icon: <FaGitlab className="text-orange-600" /> },
   { name: 'Next.js', icon: <SiNextdotjs className="text-black dark:text-white" /> },
   { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
-  
 ];
 
 const containerVariants = {
@@ -39,9 +46,9 @@ const containerVariants = {
       staggerChildren: 0.1,
       delayChildren: 0.3,
       duration: 0.5,
-      ease: 'easeOut'
-    }
-  }
+      ease: 'easeOut',
+    },
+  },
 };
 
 const itemVariants = {
@@ -52,15 +59,15 @@ const itemVariants = {
     transition: {
       type: 'spring',
       stiffness: 300,
-      damping: 20
-    }
+      damping: 20,
+    },
   },
   hover: {
     scale: 1.1,
     rotate: 10,
     boxShadow: '0 0 15px #00ff90',
-    transition: { type: 'spring', stiffness: 400, damping: 10 }
-  }
+    transition: { type: 'spring', stiffness: 400, damping: 10 },
+  },
 };
 
 export default function Competences() {
@@ -72,19 +79,25 @@ export default function Competences() {
       initial="hidden"
       animate="visible"
     >
-      <h2 className="text-2xl font-bold mb-4 glow">Mes Compétences Techniques</h2>
+      <h2 className="text-2xl font-bold mb-4 glow">
+        Mes Compétences Techniques
+      </h2>
 
       <motion.div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            className="bg-white text-black rounded-xl shadow-md flex flex-col items-center justify-center p-6 cursor-pointer select-none"
+            className="bg-white text-black rounded-xl shadow-md
+                       flex flex-col items-center justify-center
+                       p-6 cursor-pointer select-none"
             variants={itemVariants}
             whileHover="hover"
             whileTap={{ scale: 0.95 }}
           >
             <div className="text-5xl mb-3">{skill.icon}</div>
-            <p className="text-sm font-semibold text-center">{skill.name}</p>
+            <p className="text-sm font-semibold text-center">
+              {skill.name}
+            </p>
           </motion.div>
         ))}
       </motion.div>
