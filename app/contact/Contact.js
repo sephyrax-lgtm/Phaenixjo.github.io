@@ -20,13 +20,12 @@ export default function Contact() {
       const res = await fetch('https://formspree.io/f/mgvkglen', {
         method: 'POST',
         body: data,
-        headers: {
-          Accept: 'application/json',
-        },
+        headers: { Accept: 'application/json' },
       });
 
       if (res.ok) {
         setSent(true);
+        setError(false);
         form.reset();
       } else {
         setError(true);
@@ -39,15 +38,17 @@ export default function Contact() {
   };
 
   return (
-    <section className="mt-16 w-full max-w-4xl bg-gray-900/80 backdrop-blur-lg p-8 rounded-3xl shadow-2xl flex flex-col gap-8">
-      <div>
-        <h2 className="text-3xl font-bold text-green-400 mb-2">Travaillons ensemble</h2>
-        <p className="text-gray-300">
-          Vous avez un projet ou une question ? Contactez-moi en remplissant le formulaire ci-dessous.
+    <section className="mt-16 w-full max-w-4xl bg-black/70 backdrop-blur-xl p-10 rounded-3xl shadow-2xl flex flex-col gap-8 border border-gray-800">
+      
+      {/* Titre */}
+      <div className="text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-green-400 mb-2">Travaillons ensemble</h2>
+        <p className="text-gray-300 max-w-xl mx-auto">
+          Vous avez un projet ou une question ? Remplissez le formulaire ci-dessous pour me contacter.
         </p>
       </div>
 
-      {/* Message animés */}
+      {/* Feedback messages */}
       <AnimatePresence>
         {sent && (
           <motion.div
@@ -71,40 +72,64 @@ export default function Contact() {
         )}
       </AnimatePresence>
 
+      {/* Formulaire */}
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input required name="prenom" type="text" placeholder="Prénom"
-          className="p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
-        <input required name="nom" type="text" placeholder="Nom"
-          className="p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
-        <input required name="email" type="email" placeholder="Email"
-          className="p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2" />
-        <select name="service"
-          className="p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2">
+        <input
+          name="prenom"
+          type="text"
+          required
+          placeholder="Prénom"
+          className="p-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+        />
+        <input
+          name="nom"
+          type="text"
+          required
+          placeholder="Nom"
+          className="p-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+        />
+        <input
+          name="email"
+          type="email"
+          required
+          placeholder="Email"
+          className="p-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2"
+        />
+        <select
+          name="service"
+          className="p-4 rounded-xl bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2"
+        >
           <option value="">Choisir un service</option>
           <option>Développement Web</option>
           <option>Design UI/UX</option>
         </select>
-        <textarea required name="message" placeholder="Votre message" rows="4"
-          className="p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2" />
+        <textarea
+          name="message"
+          rows="5"
+          required
+          placeholder="Votre message"
+          className="p-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2"
+        />
 
         <motion.button
           whileHover={{ scale: 1.03 }}
           type="submit"
           disabled={loading}
-          className={`p-3 font-bold rounded-lg transition md:col-span-2 ${loading
+          className={`md:col-span-2 p-4 font-bold rounded-xl transition ${
+            loading
               ? 'bg-gray-500 cursor-not-allowed'
               : 'bg-green-400 text-black hover:bg-green-300'
-            }`}
+          }`}
         >
           {loading ? 'Envoi en cours...' : 'Envoyer le message'}
         </motion.button>
       </form>
 
       {/* Coordonnées */}
-      <div className="flex flex-col md:flex-row md:justify-between items-start gap-4 text-gray-300">
+      <div className="flex flex-col md:flex-row md:justify-between items-start gap-4 text-gray-300 mt-6">
         <p className="flex items-center gap-2"><Phone size={18} className="text-green-400" /> 07 44 85 59 14</p>
         <p className="flex items-center gap-2"><Mail size={18} className="text-green-400" /> akilabanajoseph@gmail.com</p>
-        <p className="flex items-center gap-2"><MapPin size={18} className="text-green-400" /> 91220 Brétigny-Sur-Orge</p>
+        <p className="flex items-center gap-2"><MapPin size={18} className="text-green-400" /> 91220 Brétigny-sur-Orge</p>
       </div>
     </section>
   );

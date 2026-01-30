@@ -40,7 +40,7 @@ export default function ProjetsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-zinc-950 px-6 py-16 text-white">
+    <main className="min-h-screen bg-black pt-24 px-6 text-white">
       <div className="max-w-7xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}

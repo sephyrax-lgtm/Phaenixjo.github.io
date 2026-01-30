@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function ContactPage() {
   return (
-    <main className="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen px-4 py-20 flex flex-col items-center text-white">
+    <main className="min-h-screen pt-24 px-4 flex flex-col items-center bg-black text-white">
       
       {/* Animation d’introduction */}
       <motion.div
@@ -23,12 +23,12 @@ export default function ContactPage() {
         </h2>
       </motion.div>
 
-      {/* Formulaire de contact stylisé */}
+      {/* Formulaire de contact */}
       <motion.div
+        className="w-full flex justify-center"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
-        className="w-full flex justify-center"
       >
         <Contact />
       </motion.div>
@@ -36,7 +36,7 @@ export default function ContactPage() {
       {/* Bouton Retour à l'accueil */}
       <div className="mt-16 text-center">
         <Link href="/">
-          <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded">
+          <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-6 rounded transition">
             ← Retour à l'accueil
           </button>
         </Link>
