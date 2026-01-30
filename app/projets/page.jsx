@@ -58,14 +58,7 @@ export default function ProjetsPage() {
           ))}
         </div>
 
-        {/* Bouton Retour à l'accueil */}
-        <div className="mt-16 text-center">
-          <Link href="/">
-            <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded">
-              ← Retour à l'accueil
-            </button>
-          </Link>
-        </div>
+        
       </div>
     </main>
   );

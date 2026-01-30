@@ -55,14 +55,7 @@ export default function Btssiopage() {
           experience={experience}
         />
 
-        {/* Bouton Retour à l'accueil */}
-        <div className="mt-16 text-center">
-          <Link href="/">
-            <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-6 rounded transition duration-300">
-              ← Retour à l'accueil
-            </button>
-          </Link>
-        </div>
+        
       </div>
     </div>
   );
