@@ -1,65 +1,32 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import ProjectCard from './ProjectCard';
-import Link from 'next/link'; // ← Ajout de l'import pour Link
+import ProjectSlide from './ProjectSlide';
 
 export default function ProjetsPage() {
-  const projects = [
-    {
-      title: "Frontend Portfolio",
-      description:
-        "Ce portfolio a été conçu comme une vitrine professionnelle regroupant mes compétences, projets, expériences et formations dans le développement web. Il a été réalisé en utilisant Next.js, Tailwind CSS et React.",
-      techs: ["Next.js", "Tailwind", "JavaScript", "React"],
-      images: [
-        "/images/projet image.png",
-        "/images/projet image1.png",
-        
-      ],
-      liveLink: "https://demo-projet.com",
-      codeLink: "https://github.com/tonprofil/projet-frontend",
-    },
-    {
-      title: "Projet HTML & CSS",
-      description:
-        "Un petit projet statique pour pratiquer les bases du HTML et du CSS. Création de CV avec HTML et CSS.",
-      techs: ["HTML", "CSS"],
-      images: ["/images/imagepro.png"],
-      liveLink: "/projet-html-css/",
-      codeLink: "",
-    },
-    {
-      title: "Vue.js & Tailwind & Pinia",
-      description:
-        "GSH Social est une application web de réseau social qui permet aux utilisateurs de publier des messages, d’aimer et de commenter les publications des autres, tout en interagissant en temps réel grâce à une base de données connectée.",
-      techs: ["Vue.js", "Tailwind", "Pinia"],
-      images: ["/images/image2.png"],
-      liveLink: "/projet-html-css/",
-      codeLink: "",
-    },
-  ];
-
   return (
-    <main className="min-h-screen bg-black pt-24 px-6 text-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16"
-        >
-          Mes Projets
-        </motion.h1>
+    <main className="min-h-screen bg-black pt-28 px-6 text-white flex flex-col items-center">
+      
+      {/* TITRE AVEC ANIMATION */}
+      <motion.h1
+        initial={{ opacity: 0, y: -50, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="text-5xl md:text-6xl font-extrabold text-center mb-16 md:mb-20"
+      >
+        Mes Projets
+      </motion.h1>
 
-        <div className="grid gap-10">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
+      {/* SLIDER DES PROJETS */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="w-full max-w-6xl"
+      >
+        <ProjectSlide />
+      </motion.div>
 
-        
-      </div>
     </main>
   );
 }

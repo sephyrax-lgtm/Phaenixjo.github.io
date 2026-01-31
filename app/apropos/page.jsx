@@ -1,11 +1,11 @@
 import About from './About';
-import Link from 'next/link';
 
 export default function AProposPage() {
   return (
-    <main className="max-w-5xl mx-auto px-6 py-16">
-      <About />
-      
+    <main className="min-h-screen pt-24 px-6 bg-black text-white">
+      <div className="max-w-6xl mx-auto py-16">
+        <About />
+      </div>
     </main>
   );
 }

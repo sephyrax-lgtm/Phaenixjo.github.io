@@ -1,58 +1,35 @@
-import Image from 'next/image';
-
 const projects = [
   {
-    title: "Dashboard Admin",
-    description: "Interface administrateur moderne avec React + API REST.",
-    tech: ["React", "Tailwind", "Node.js"],
-    image: "/images/dashboard.png",
-    link: "https://github.com/tonprofil/dashboard",
+    number: "01",
+    title: "Frontend Portfolio",
+    description:
+      "GSH Social est une application web de réseau social qui permet aux utilisateurs de publier des messages, d’aimer et de commenter les publications des autres, tout en interagissant en temps réel grâce à une base de données connectée.",
+    techs: ["Next.js", "Tailwind", "JavaScript", "React"],
+    image: "/images/projet image.png",
+    image: "/images/projet image1.png",
+    liveLink: "https://demo.com",
+    codeLink: "https://github.com",
   },
   {
-    title: "Landing Page",
-    description: "Page marketing responsive conçue avec Next.js.",
-    tech: ["Next.js", "Tailwind CSS", "Figma"],
-    image: "/images/landingpage.png",
-    link: "https://github.com/tonprofil/landingpage",
+    number: "02",
+    title: "Projet HTML & CSS",
+    description:
+      "Un petit projet statique pour pratiquer les bases du HTML et du CSS. Création de CV avec HTML et CSS.",
+    techs: ["HTML", "CSS"],
+    image: "/images/imagepro.png",
+    liveLink: "https://demo.com",
+    codeLink: "https://github.com",
+  },
+  {
+    number: "03",
+    title: "Vue Social App",
+    description:
+      "GSH Social est une application web de réseau social qui permet aux utilisateurs de publier des messages, d’aimer et de commenter les publications des autres, tout en interagissant en temps réel grâce à une base de données connectée.",
+    techs: ["Vue.js", "Pinia", "Tailwind"],
+    image: "/images/image2.png",
+    liveLink: "https://demo.com",
+    codeLink: "https://github.com",
   },
 ];
 
-export default function Projects() {
-  return (
-    <section id="projects" className="py-20 bg-white">
-      <h2 className="text-4xl text-center font-bold mb-10">Mes projets</h2>
-      <div className="grid md:grid-cols-2 gap-10 px-6 max-w-6xl mx-auto">
-        {projects.map((project) => (
-          <div
-            key={project.title}
-            className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-          >
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={400}     // Ajuste ces valeurs selon ta mise en page
-              height={300}
-              className="rounded mb-4"
-              priority          // charge rapidement les images importantes
-            />
-            <h3 className="text-2xl font-semibold">{project.title}</h3>
-            <p className="text-gray-600 mb-2">{project.description}</p>
-            <div className="flex flex-wrap gap-2 text-sm text-indigo-600">
-              {project.tech.map((t) => (
-                <span key={t}>#{t}</span>
-              ))}
-            </div>
-            <a
-              href={project.link}
-              className="block mt-4 text-indigo-500 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Code source →
-            </a>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+export default projects;
