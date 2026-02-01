@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const veilles = [
   {
@@ -89,12 +89,18 @@ const veilles = [
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
+  show: {
+    transition: { staggerChildren: 0.12 },
+  },
 };
 
 const item = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
 };
 
 export default function Veille() {
@@ -103,44 +109,53 @@ export default function Veille() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      className="space-y-14 px-4 sm:px-0"
+      viewport={{ once: false, amount: 0.1 }}
+      className="space-y-10 px-4 md:px-8"
     >
-      {/* Titre */}
+      {/* TITRE */}
       <header className="text-center space-y-4">
-        <h2 className="text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
           Veille technologique
         </h2>
-        <p className="max-w-3xl mx-auto text-sm text-neutral-400 leading-relaxed">
-          Cette veille technologique est consacrée à l’informatique quantique, un domaine émergent exploitant les principes de la mécanique quantique afin de résoudre des problématiques inaccessibles à l’informatique classique.
+        <p className="max-w-xl mx-auto text-sm md:text-base text-neutral-400 leading-relaxed">
+          Cette veille technologique est consacrée à l’informatique quantique,
+          un domaine émergent exploitant les principes de la mécanique quantique
+          afin de résoudre des problématiques inaccessibles à l’informatique classique.
         </p>
       </header>
 
-      {/* Méthodologie */}
-      <div className="max-w-3xl mx-auto rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 text-sm text-neutral-300">
+      {/* MÉTHODOLOGIE */}
+      <div className="max-w-xl mx-auto rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 md:p-6 text-sm md:text-base text-neutral-300">
         <h3 className="font-semibold text-white mb-2">Méthodologie de veille</h3>
         <p>
-          Les informations sont collectées à l’aide de sources spécialisées telles que <strong>Google Alertes</strong>, <strong>Feedly</strong> et des médias scientifiques reconnus. Les articles sont sélectionnés selon leur fiabilité, leur actualité et leur lien direct avec l’informatique quantique et la cybersécurité.
+          Les informations sont collectées à l’aide de sources spécialisées telles que Google Alertes, Feedly et des médias scientifiques reconnus. 
+          Les articles sont sélectionnés selon leur fiabilité, leur actualité et leur lien direct avec l’informatique quantique et la cybersécurité.
         </p>
       </div>
 
-      {/* Articles */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      {/* ARTICLES */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {veilles.map((article) => (
           <motion.article
             key={article.id}
             variants={item}
-            className="group rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4 sm:p-6 transition hover:border-neutral-700 hover:bg-neutral-900"
+            className="group rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4 md:p-6 transition hover:border-green-500 hover:bg-neutral-900"
           >
-            <div className="space-y-3">
-              <h4 className="text-lg font-semibold leading-snug">{article.titre}</h4>
-              <p className="text-xs text-neutral-400">{article.source} • {article.date}</p>
-              <p className="text-sm text-neutral-300 leading-relaxed">{article.resume}</p>
+            <div className="space-y-2">
+              <h4 className="text-lg font-semibold text-white leading-snug">
+                {article.titre}
+              </h4>
+              <p className="text-xs md:text-sm text-neutral-400">
+                {article.source} • {article.date}
+              </p>
+              <p className="text-sm text-neutral-300 leading-relaxed">
+                {article.resume}
+              </p>
               <a
                 href={article.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm font-medium text-green-400 hover:text-green-300 transition"
+                className="inline-flex items-center gap-1 text-green-400 hover:text-green-300 font-medium text-sm md:text-base transition"
               >
                 Lire l’article
                 <ArrowUpRight size={16} />
