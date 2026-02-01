@@ -30,6 +30,26 @@ const projects = [
     liveLink: "https://demo.com",
     codeLink: "https://github.com",
   },
+   {
+    number: "04",
+    title: "Dashboard Admin",
+    description:
+      "Dashboard d’administration pour la gestion de contenus et utilisateurs, avec graphiques et statistiques en temps réel.",
+    techs: ["Vue.js (frontend), Node.js / Express (backend), WebSocket, MySQL, API REST et RBAC"],
+    images: ["/images/dashboard.png"],
+    liveLink: "https://demo.com",
+    codeLink: "https://github.com/username/admin-dashboard",
+  },
+  {
+    number: "05",
+    title: "E-commerce Shop",
+    description:
+      "Application e-commerce complète avec catalogue de produits, panier et paiement simulé. Développement avec Next.js et Tailwind CSS.",
+    techs: ["Next.js", "React", "Tailwind CSS", "JavaScript"],
+    images: ["/images/ecommerce.png"],
+    liveLink: "https://demo.com",
+    codeLink: "https://github.com/username/ecommerce-shop",
+  },
 ];
 
 export default projects;

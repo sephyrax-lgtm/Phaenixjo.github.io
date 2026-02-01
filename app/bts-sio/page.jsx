@@ -45,7 +45,7 @@ export default function Btssiopage() {
       <div className="code-background fixed inset-0 z-0" />
 
       {/* Contenu principal */}
-      <div className="relative z-10 px-4 py-12 max-w-screen-xl mx-auto">
+      <div className="relative z-10 px-4 sm:px-6 md:px-8 py-12 max-w-screen-xl mx-auto">
         <Tab
           diplomeFormation={diplomeFormation}
           competences={competences}

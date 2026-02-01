@@ -1,6 +1,10 @@
+'use client';
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
+import { Tabs, TabsList, TabsTrigger } from "./tabs";
+
+import { FaGraduationCap, FaLaptopCode, FaBullseye } from "react-icons/fa";
 
 import DiplomeFormation from "./Diplome";
 import Competences from "./competence";
@@ -9,188 +13,215 @@ import VeilleTechnologique from "./Veille";
 import Certifications from "./Certification";
 import Experience from "./experience";
 
-// Données de formations
+// Données formations
 const diplomeFormationData = [
   {
-    titre: "BTS-SIO : Service Informatique aux Organisations",
+    titre: "BTS SIO – Services Informatiques aux Organisations",
     etablissement: "Lycée Geoffroy Saint-Hilaire",
     lieu: "Étampes",
-    année: "2024 - 2025",
+    annee: "2024 - 2025",
   },
   {
     titre: "Baccalauréat STI2D",
     etablissement: "Lycée Michelet Edmond",
     lieu: "Arpajon",
-    année: "2023 - 2024",
+    annee: "2023 - 2024",
   },
   {
     titre: "Diplôme National du Brevet",
     etablissement: "Collège Jean Moulin",
     lieu: "La Norville",
-    année: "2020 - 2021",
+    annee: "2020 - 2021",
   },
 ];
 
-export default function Tab({
-  competences,
-  notesSynthese,
-  veilleTechnologique,
-  certifications,
-}) {
+export default function Tab({ competences, notesSynthese, veilleTechnologique, certifications }) {
   const [activeTab, setActiveTab] = useState("formation");
 
-  // Définition des onglets
   const tabs = [
     { value: "formation", label: "Formations" },
     { value: "experience", label: "Expériences" },
     { value: "competences", label: "Compétences" },
-    { value: "veille", label: "Veille Techno" },
+    { value: "veille", label: "Veille techno" },
     { value: "certifications", label: "Certifications" },
-    { value: "notes", label: "Notes de Synthèse" },
+    { value: "notes", label: "Notes de synthèse" },
   ];
 
   return (
-    <div className="min-h-screen bg-black text-gray-200 font-mono flex flex-col items-center py-12 px-6">
-      {/* --- Titre principal avec effet néon --- */}
-      <motion.h1
-        className="text-5xl md:text-6xl font-extrabold mb-6 text-center tracking-wide"
-        style={{
-          textShadow:
-            "0 0 10px #00ff90, 0 0 20px #00ff90, 0 0 40px rgba(0,255,144,0.7)",
-          color: "#00ff90",
-        }}
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-      >
-        BTS SIO
-      </motion.h1>
+    <section className="min-h-screen bg-black text-gray-200 font-mono flex flex-col items-center py-12 px-4">
 
-      {/* --- Sous-titre --- */}
-      <motion.p
-        className="text-gray-400 text-center mb-12 max-w-2xl leading-relaxed"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-      >
-        Passionné par le développement, rigoureux et curieux, je me forme en
-        <span className="text-green-400 font-semibold">
-          {" "}
-          BTS SIO option SLAM
-        </span>
-        . Découvrez mes compétences, formations et expériences à travers les
-        onglets ci-dessous.
-      </motion.p>
+      {/* ================= Présentation BTS ================= */}
+      <div className="w-full max-w-4xl mx-auto space-y-8 text-center">
 
-      {/* --- Container principal --- */}
-      <div className="flex w-full max-w-6xl gap-8">
-        <Tabs
-          value={activeTab}
-          onValueChange={setActiveTab}
-          className="flex w-full gap-8"
+        {/* Titre */}
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-3xl md:text-4xl font-extrabold tracking-tight
+                     text-transparent bg-clip-text
+                     bg-gradient-to-r from-green-400 to-emerald-300"
         >
-          {/* --- Menu onglets --- */}
-          <TabsList className="flex flex-col gap-3 bg-[#121212] p-5 rounded-xl w-56 shadow-lg">
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                className={`rounded-md px-4 py-3 font-semibold transition-all duration-300 cursor-pointer text-sm tracking-wide
-                  ${
-                    activeTab === tab.value
-                      ? "bg-green-400 text-black shadow-[0_0_10px_#00ff90]"
-                      : "bg-[#1f1f1f] text-gray-300 hover:bg-[#2a2a2a]"
-                  }`}
-              >
-                {tab.label}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          BTS Services Informatiques aux Organisations
+        </motion.h2>
 
-          {/* --- Contenu des onglets --- */}
-          <div className="flex-1">
-            <AnimatePresence mode="wait">
-              {activeTab === "formation" && (
-                <motion.div
-                  key="formation"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-[#121212] p-6 rounded-xl shadow-lg"
-                >
-                  <DiplomeFormation data={diplomeFormationData} />
-                </motion.div>
-              )}
+        {/* Présentation */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex items-start gap-3 rounded-2xl border border-neutral-800
+                     bg-neutral-900/60 backdrop-blur p-5 md:p-6 text-left shadow-md"
+        >
+          <FaGraduationCap className="text-green-400 text-3xl flex-shrink-0 mt-1" />
+          <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+            Étudiant en <span className="text-green-400 font-semibold">SLAM</span> (Solutions Logicielles et Applications Métiers), orienté vers le <strong>développement d’applications</strong>, les bases de données et les technologies web modernes.
+          </p>
+        </motion.div>
 
-              {activeTab === "experience" && (
-                <motion.div
-                  key="experience"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-[#121212] p-6 rounded-xl shadow-lg"
-                >
-                  <Experience />
-                </motion.div>
-              )}
+        {/* Technologies / compétences */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex items-start gap-3 rounded-2xl border border-neutral-800
+                     bg-neutral-900/60 backdrop-blur p-5 md:p-6 text-left shadow-md"
+        >
+          <FaLaptopCode className="text-cyan-400 text-3xl flex-shrink-0 mt-1" />
+          <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+            Cette formation permet de maîtriser les <strong>technologies modernes</strong>, le développement web, la gestion de bases de données et la programmation d’applications.
+          </p>
+        </motion.div>
 
-              {activeTab === "competences" && (
-                <motion.div
-                  key="competences"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-[#121212] p-6 rounded-xl shadow-lg"
-                >
-                  <Competences competences={competences} />
-                </motion.div>
-              )}
-
-              {activeTab === "veille" && (
-                <motion.div
-                  key="veille"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-[#121212] p-6 rounded-xl shadow-lg"
-                >
-                  <VeilleTechnologique data={veilleTechnologique} />
-                </motion.div>
-              )}
-
-              {activeTab === "certifications" && (
-                <motion.div
-                  key="certifications"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-[#121212] p-6 rounded-xl shadow-lg"
-                >
-                  <Certifications data={certifications} />
-                </motion.div>
-              )}
-
-              {activeTab === "notes" && (
-                <motion.div
-                  key="notes"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-[#121212] p-6 rounded-xl shadow-lg"
-                >
-                  <NotesSynthese data={notesSynthese} />
-                </motion.div>
-              )}
-            </AnimatePresence>
+        {/* Objectif professionnel */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex items-start gap-3 rounded-2xl border border-neutral-800
+                     bg-neutral-900/60 backdrop-blur p-5 md:p-6 text-left shadow-md"
+        >
+          <FaBullseye className="text-emerald-400 text-3xl flex-shrink-0 mt-1" />
+          <div>
+            <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+              Après mon <strong>BTS SIO option SLAM</strong>, je souhaite poursuivre mes études en <strong>licence</strong> puis en <strong>master</strong> afin d’élargir mes compétences techniques et théoriques.
+            </p>
+            <p className="mt-2 text-neutral-300 text-sm md:text-base leading-relaxed">
+              Mon objectif est d’évoluer vers des postes à responsabilité dans le développement logiciel et les technologies web, tout en restant constamment à jour sur les innovations.
+            </p>
           </div>
-        </Tabs>
+        </motion.div>
+
       </div>
-    </div>
+
+      {/* ================= Tabs ================= */}
+      <Tabs
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="w-full max-w-6xl flex flex-col md:flex-row gap-6 mt-10"
+      >
+        {/* Onglets */}
+        <TabsList
+          className="flex flex-row md:flex-col w-full md:w-56 gap-2 p-2
+                     bg-[#121212] rounded-xl overflow-x-auto md:overflow-visible
+                     border border-[#1f1f1f]"
+        >
+          {tabs.map((tab) => (
+            <TabsTrigger
+              key={tab.value}
+              value={tab.value}
+              className="min-w-[140px] md:min-w-0 text-center md:text-left
+                         px-3 py-2 rounded-md text-sm font-semibold
+                         transition-all duration-300"
+            >
+              {tab.label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {/* Contenu des onglets */}
+        <div className="flex-1">
+          <AnimatePresence mode="wait">
+            {activeTab === "formation" && (
+              <motion.div
+                key="formation"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4 }}
+                className="bg-[#121212] p-4 md:p-6 rounded-xl shadow-lg"
+              >
+                <DiplomeFormation data={diplomeFormationData} />
+              </motion.div>
+            )}
+
+            {activeTab === "experience" && (
+              <motion.div
+                key="experience"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4 }}
+                className="bg-[#121212] p-4 md:p-6 rounded-xl shadow-lg"
+              >
+                <Experience />
+              </motion.div>
+            )}
+
+            {activeTab === "competences" && (
+              <motion.div
+                key="competences"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4 }}
+                className="bg-[#121212] p-4 md:p-6 rounded-xl shadow-lg"
+              >
+                <Competences competences={competences} />
+              </motion.div>
+            )}
+
+            {activeTab === "veille" && (
+              <motion.div
+                key="veille"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4 }}
+                className="bg-[#121212] p-4 md:p-6 rounded-xl shadow-lg"
+              >
+                <VeilleTechnologique data={veilleTechnologique} />
+              </motion.div>
+            )}
+
+            {activeTab === "certifications" && (
+              <motion.div
+                key="certifications"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4 }}
+                className="bg-[#121212] p-4 md:p-6 rounded-xl shadow-lg"
+              >
+                <Certifications data={certifications} />
+              </motion.div>
+            )}
+
+            {activeTab === "notes" && (
+              <motion.div
+                key="notes"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4 }}
+                className="bg-[#121212] p-4 md:p-6 rounded-xl shadow-lg"
+              >
+                <NotesSynthese data={notesSynthese} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </Tabs>
+    </section>
   );
 }

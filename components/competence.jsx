@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import * as HoverCard from '@radix-ui/react-hover-card';
+
 import {
   FaHtml5, FaCss3Alt, FaJs, FaPhp, FaPython,
   FaLinux, FaWindows, FaDatabase, FaReact, FaJava,
@@ -15,93 +17,134 @@ import {
   SiMariadb
 } from 'react-icons/si';
 
+/* =======================
+   DATA
+======================= */
 const skills = [
-  { name: 'HTML', icon: <FaHtml5 className="text-orange-500" /> },
-  { name: 'CSS', icon: <FaCss3Alt className="text-blue-500" /> },
-  { name: 'JavaScript', icon: <FaJs className="text-yellow-400" /> },
-  { name: 'PHP', icon: <FaPhp className="text-indigo-600" /> },
-  { name: 'Python', icon: <FaPython className="text-blue-400" /> },
-  { name: 'Linux', icon: <FaLinux className="text-gray-300" /> },
-  { name: 'Windows', icon: <FaWindows className="text-blue-600" /> },
-  { name: 'SQL', icon: <FaDatabase className="text-purple-500" /> },
-  { name: 'MariaDB', icon: <SiMariadb className="text-blue-700" /> },
-  { name: 'React', icon: <FaReact className="text-cyan-400" /> },
-  { name: 'Vue.js', icon: <FaVuejs className="text-green-500" /> },
-  { name: 'Java', icon: <FaJava className="text-red-500" /> },
-  { name: 'Docker', icon: <FaDocker className="text-blue-400" /> },
-  { name: 'Kubernetes', icon: <SiKubernetes className="text-blue-500" /> },
-  { name: 'Git', icon: <FaGitAlt className="text-orange-600" /> },
-  { name: 'GitHub', icon: <FaGithub className="text-gray-800" /> },
-  { name: 'Arduino', icon: <FaMicrochip className="text-green-500" /> },
-  { name: 'Cisco Packet Tracer', icon: <FaNetworkWired className="text-blue-400" /> },
-  { name: 'Next.js', icon: <SiNextdotjs className="text-black dark:text-white" /> },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
+  { name: 'HTML', icon: FaHtml5, color: 'text-orange-500' },
+  { name: 'CSS', icon: FaCss3Alt, color: 'text-blue-500' },
+  { name: 'JavaScript', icon: FaJs, color: 'text-yellow-400' },
+  { name: 'PHP', icon: FaPhp, color: 'text-indigo-400' },
+  { name: 'Python', icon: FaPython, color: 'text-blue-400' },
+  { name: 'Linux', icon: FaLinux, color: 'text-gray-300' },
+  { name: 'Windows', icon: FaWindows, color: 'text-blue-600' },
+  { name: 'SQL', icon: FaDatabase, color: 'text-purple-400' },
+  { name: 'MariaDB', icon: SiMariadb, color: 'text-blue-500' },
+  { name: 'React', icon: FaReact, color: 'text-cyan-400' },
+  { name: 'Vue.js', icon: FaVuejs, color: 'text-green-500' },
+  { name: 'Next.js', icon: SiNextdotjs, color: 'text-white' },
+  { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-teal-400' },
+  { name: 'Java', icon: FaJava, color: 'text-red-400' },
+  { name: 'Docker', icon: FaDocker, color: 'text-blue-400' },
+  { name: 'Kubernetes', icon: SiKubernetes, color: 'text-blue-500' },
+  { name: 'Git', icon: FaGitAlt, color: 'text-orange-500' },
+  { name: 'GitHub', icon: FaGithub, color: 'text-gray-300' },
+  { name: 'Arduino', icon: FaMicrochip, color: 'text-green-400' },
+  { name: 'Réseaux (Cisco)', icon: FaNetworkWired, color: 'text-blue-400' },
 ];
 
-const containerVariants = {
+/* =======================
+   ANIMATIONS
+======================= */
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const item = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
+  show: {
     opacity: 1,
     y: 0,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-      duration: 0.5,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.45, ease: 'easeOut' },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-      damping: 20,
-    },
-  },
-  hover: {
-    scale: 1.1,
-    rotate: 10,
-    boxShadow: '0 0 15px #00ff90',
-    transition: { type: 'spring', stiffness: 400, damping: 10 },
-  },
-};
-
+/* =======================
+   COMPONENT
+======================= */
 export default function Competences() {
   return (
-    <motion.div
-      id="competences"
-      className="space-y-8"
-      variants={containerVariants}
+    <motion.section
+      variants={container}
       initial="hidden"
-      animate="visible"
+      animate="show"
+      className="space-y-10"
     >
-      <h2 className="text-2xl font-bold mb-4 glow">
-        Mes Compétences Techniques
-      </h2>
+      {/* Titre */}
+      <div className="text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+          Compétences techniques
+        </h2>
+        <p className="mt-2 text-gray-400 text-sm md:text-base">
+          Technologies et outils que j’utilise régulièrement
+        </p>
+      </div>
 
-      <motion.div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            className="bg-white text-black rounded-xl shadow-md
-                       flex flex-col items-center justify-center
-                       p-6 cursor-pointer select-none"
-            variants={itemVariants}
-            whileHover="hover"
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="text-5xl mb-3">{skill.icon}</div>
-            <p className="text-sm font-semibold text-center">
-              {skill.name}
-            </p>
-          </motion.div>
-        ))}
+      {/* Grille */}
+      <motion.div
+        className="
+          grid
+          grid-cols-2
+          sm:grid-cols-3
+          md:grid-cols-4
+          lg:grid-cols-5
+          gap-5
+        "
+      >
+        {skills.map((skill) => {
+          const Icon = skill.icon;
+
+          return (
+            <HoverCard.Root key={skill.name} openDelay={100}>
+              <HoverCard.Trigger asChild>
+                <motion.div
+                  variants={item}
+                  whileHover={{ y: -6 }}
+                  whileTap={{ scale: 0.96 }}
+                  className="
+                    group
+                    rounded-2xl
+                    bg-[#121212]
+                    border border-neutral-800
+                    p-5
+                    flex flex-col items-center justify-center
+                    cursor-pointer
+                    transition-all
+                    hover:border-green-400/40
+                    hover:shadow-[0_0_25px_rgba(0,255,144,0.15)]
+                    focus:outline-none
+                  "
+                >
+                  <Icon className={`text-4xl mb-3 ${skill.color}`} />
+                  <span className="text-sm font-semibold text-gray-200 text-center">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              </HoverCard.Trigger>
+
+              {/* Tooltip Radix */}
+              <HoverCard.Content
+                side="top"
+                className="
+                  z-50
+                  rounded-md
+                  bg-black
+                  px-3 py-2
+                  text-xs
+                  text-gray-200
+                  border border-neutral-700
+                  shadow-lg
+                "
+              >
+                {skill.name}
+              </HoverCard.Content>
+            </HoverCard.Root>
+          );
+        })}
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 }
