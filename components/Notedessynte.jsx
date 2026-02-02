@@ -17,7 +17,7 @@ const notes = [
     titre: 'Année 2 – W3TEL',
     description:
       "Application web de gestion sécurisée de serveurs distants permettant aux utilisateurs de se connecter via JWT et d’accéder à des terminaux SSH en temps réel depuis une interface moderne.",
-    lien: 'https://docs.google.com/document/d/2emeLienGoogleDoc',
+    lien: 'https://docs.google.com/document/d/1ozKUVme11os4pn74er8ypwkVU6ljEsn1QMREctUH0dk/edit?tab=t.0',
     logo: '/images/logo-w3tel.jpeg',
     couleur: 'from-green-600 via-green-500 to-green-400',
   },
