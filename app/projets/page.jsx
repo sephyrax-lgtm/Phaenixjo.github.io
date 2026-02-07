@@ -13,7 +13,7 @@ export default function ProjetsPage() {
   { title: "La base en Java", pdf: "/pdfs/base-java.pdf" },
   { title: "Utilisateurs et droits", pdf: "/pdfs/droits.pdf" },
   { title: "Application Java pour gérer un répertoire", pdf: "/pdfs/repertoire.pdf" },
-  { title: "Packet Tracer - Mise en place d'un serveur web", pdf: "/pdfs/serveur-web.pdf" },
+  { title: "Packet Tracer - Mise en place d'un serveur web", pdf: "/pdfs/Serveur-web.pdf" },
 ];
 
 
