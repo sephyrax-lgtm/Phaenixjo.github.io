@@ -7,14 +7,15 @@ import { FaProjectDiagram } from 'react-icons/fa';
 export default function ProjetsPage() {
   // Liste des comptes-rendus avec lien vers le PDF
   const comptesRendus = [
-    { title: "Système de partitionnement", pdf: "/pdfs/partitionnement.pdf" },
-    { title: "Création d'une interface graphique JAVA FXML", pdf: "/pdfs/java-fxml.pdf" },
-    { title: "Identité Numérique", pdf: "/pdfs/identite.pdf" },
-    { title: "La base en Java", pdf: "/pdfs/base-java.pdf" },
-    { title: "Utilisateurs et droits", pdf: "/pdfs/droits.pdf" },
-    { title: "Application Java pour gérer un répertoire", pdf: "/pdfs/repertoire.pdf" },
-    { title: "Packet Tracer - Mise en place d'un serveur web", pdf: "/pdfs/serveur-web.pdf" },
-  ];
+  { title: "Système de partitionnement", pdf: "/pdfs/partitionnement.pdf" },
+  { title: "Création d'une interface graphique JAVA FXML", pdf: "/pdfs/java-fxml.pdf" },
+  { title: "Identité Numérique", pdf: "/pdfs/Identite.pdf" },
+  { title: "La base en Java", pdf: "/pdfs/base-java.pdf" },
+  { title: "Utilisateurs et droits", pdf: "/pdfs/droits.pdf" },
+  { title: "Application Java pour gérer un répertoire", pdf: "/pdfs/repertoire.pdf" },
+  { title: "Packet Tracer - Mise en place d'un serveur web", pdf: "/pdfs/serveur-web.pdf" },
+];
+
 
   return (
     <main className="min-h-screen bg-black text-white pt-28 pb-20">
