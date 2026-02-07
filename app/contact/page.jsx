@@ -2,11 +2,10 @@
 
 import Contact from './Contact';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen pt-24 px-4 flex flex-col items-center bg-black text-white">
+    <main className="min-h-screen pt-24 px-4 md:px-8 flex flex-col items-center bg-black text-white">
       
       {/* Animation d’introduction */}
       <motion.div
@@ -32,8 +31,6 @@ export default function ContactPage() {
       >
         <Contact />
       </motion.div>
-
-      
       
     </main>
   );

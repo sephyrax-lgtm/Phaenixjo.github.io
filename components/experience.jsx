@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import React from 'react';
 
 const experiences = [
   {
@@ -43,9 +42,7 @@ const experiences = [
 
 const container = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.2 },
-  },
+  show: { transition: { staggerChildren: 0.2 } },
 };
 
 const item = {
@@ -88,23 +85,12 @@ export default function Experience() {
       {/* Timeline */}
       <div className="relative space-y-10 sm:space-y-14">
         {/* Ligne verticale (desktop seulement) */}
-        <div className="hidden sm:block absolute left-6 top-0 bottom-0 w-[3px]
-                        bg-gradient-to-b from-green-400 via-blue-400 to-transparent" />
+        <div className="hidden sm:block absolute left-6 top-0 bottom-0 w-[3px] bg-gradient-to-b from-green-400 via-blue-400 to-transparent" />
 
         {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            variants={item}
-            className="
-              relative
-              sm:pl-16
-            "
-          >
+          <motion.div key={index} variants={item} className="relative sm:pl-16">
             {/* Point timeline (desktop seulement) */}
-            <div className="hidden sm:flex absolute left-0 top-4 w-12 h-12
-                            rounded-full bg-[#1a1a1f]
-                            border border-green-400/60
-                            items-center justify-center">
+            <div className="hidden sm:flex absolute left-0 top-4 w-12 h-12 rounded-full bg-[#1a1a1f] border border-green-400/60 items-center justify-center">
               <div className="w-3 h-3 bg-green-400 rounded-full" />
             </div>
 
@@ -118,10 +104,7 @@ export default function Experience() {
               hover:border-green-400/50
               transition-all duration-300
             ">
-              <h3 className="text-lg sm:text-xl font-bold text-green-300">
-                {exp.date}
-              </h3>
-
+              <h3 className="text-lg sm:text-xl font-bold text-green-300">{exp.date}</h3>
               <p className="mt-3 text-sm sm:text-base text-neutral-300 leading-relaxed whitespace-pre-line">
                 {exp.description}
               </p>

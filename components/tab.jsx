@@ -35,7 +35,7 @@ const diplomeFormationData = [
   },
 ];
 
-export default function Tab({ competences, notesSynthese, veilleTechnologique, certifications }) {
+export default function Tab({ competences, notesSynthese, veilleTechnologique, certifications, experience }) {
   const [activeTab, setActiveTab] = useState("formation");
 
   const tabs = [
@@ -50,14 +50,13 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
   return (
     <section className="min-h-screen bg-black text-gray-200 font-mono flex flex-col items-center py-12 px-4">
 
-      {/* ================= Présentation BTS ================= */}
+      {/* Présentation BTS */}
       <div className="w-full max-w-4xl mx-auto space-y-8 text-center">
 
-        {/* Titre */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-extrabold tracking-tight
                      text-transparent bg-clip-text
                      bg-gradient-to-r from-green-400 to-emerald-300"
@@ -65,7 +64,6 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
           BTS Services Informatiques aux Organisations
         </motion.h2>
 
-        {/* Présentation */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,7 +77,6 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
           </p>
         </motion.div>
 
-        {/* Technologies / compétences */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,7 +90,6 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
           </p>
         </motion.div>
 
-        {/* Objectif professionnel */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -114,19 +110,18 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
 
       </div>
 
-      {/* ================= Tabs ================= */}
+      {/* Onglets */}
       <Tabs
         value={activeTab}
         onValueChange={setActiveTab}
         className="w-full max-w-6xl flex flex-col md:flex-row gap-6 mt-10"
       >
-        {/* Onglets */}
         <TabsList
           className="flex flex-row md:flex-col w-full md:w-56 gap-2 p-2
                      bg-[#121212] rounded-xl overflow-x-auto md:overflow-visible
                      border border-[#1f1f1f]"
         >
-          {tabs.map((tab) => (
+          {tabs.map(tab => (
             <TabsTrigger
               key={tab.value}
               value={tab.value}
@@ -139,7 +134,6 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
           ))}
         </TabsList>
 
-        {/* Contenu des onglets */}
         <div className="flex-1">
           <AnimatePresence mode="wait">
             {activeTab === "formation" && (
@@ -164,7 +158,7 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
                 transition={{ duration: 0.4 }}
                 className="bg-[#121212] p-4 md:p-6 rounded-xl shadow-lg"
               >
-                <Experience />
+                <Experience data={experience} />
               </motion.div>
             )}
 

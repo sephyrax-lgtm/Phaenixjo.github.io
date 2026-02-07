@@ -44,7 +44,7 @@ export default function Contact() {
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-green-400 mb-2">Travaillons ensemble</h2>
         <p className="text-gray-300 max-w-xl mx-auto">
-          Vous avez un projet ou une question ? Remplissez le formulaire ci-dessous pour me contacter.
+          Vous avez un projet ou une question ? Remplissez le formulaire ci-dessous pour me contacter.
         </p>
       </div>
 
