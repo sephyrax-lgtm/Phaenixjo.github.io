@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { ExternalLink, Github } from 'lucide-react';
@@ -9,7 +9,19 @@ import projects from './Projects';
 export default function ProjectSlide() {
   const [index, setIndex] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isClient, setIsClient] = useState(false); // Flag pour savoir si on est côté client
+  const [isDesktop, setIsDesktop] = useState(false); // Flag pour desktop
   const cardRef = useRef(null);
+
+  useEffect(() => {
+    setIsClient(true);
+    if (window.innerWidth >= 1024) setIsDesktop(true);
+
+    // Optionnel : recalculer si on redimensionne
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   if (!projects?.length) {
     return (
@@ -25,9 +37,9 @@ export default function ProjectSlide() {
   const prev = () =>
     setIndex((i) => (i === 0 ? projects.length - 1 : i - 1));
 
-  /* Parallax UNIQUEMENT desktop */
+  // Gestion du parallax au survol
   const handleMouseMove = (e) => {
-    if (window.innerWidth < 1024 || !cardRef.current) return;
+    if (!isDesktop || !cardRef.current) return;
 
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -38,7 +50,7 @@ export default function ProjectSlide() {
 
   return (
     <div className="relative w-full flex flex-col items-center gap-8">
-      {/* FOND DÉCORATIF */}
+      {/* Fond décoratif */}
       <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl">
         <motion.div
           animate={{ rotate: 360 }}
@@ -52,7 +64,7 @@ export default function ProjectSlide() {
         />
       </div>
 
-      {/* CARTE PROJET */}
+      {/* Carte projet */}
       <AnimatePresence mode="wait">
         <motion.article
           ref={cardRef}
@@ -74,12 +86,12 @@ export default function ProjectSlide() {
           "
           style={{
             transform:
-              window.innerWidth >= 1024
+              isClient && isDesktop
                 ? `rotateY(${mousePos.x * 6}deg) rotateX(${-mousePos.y * 6}deg)`
                 : 'none',
           }}
         >
-          {/* TEXTE */}
+          {/* Texte */}
           <div className="flex-1 space-y-4">
             <span className="text-green-400 font-semibold text-sm">
               {project.number}
@@ -97,7 +109,7 @@ export default function ProjectSlide() {
               {project.techs.join(' • ')}
             </p>
 
-            {/* LIENS */}
+            {/* Liens */}
             <div className="flex gap-4 pt-2">
               {project.liveLink && (
                 <a
@@ -135,7 +147,7 @@ export default function ProjectSlide() {
             </div>
           </div>
 
-          {/* IMAGE */}
+          {/* Image */}
           <div
             className="
               relative w-full
@@ -145,10 +157,8 @@ export default function ProjectSlide() {
             "
             style={{
               transform:
-                window.innerWidth >= 1024
-                  ? `translate(${mousePos.x * 12}px, ${
-                      -mousePos.y * 12
-                    }px)`
+                isClient && isDesktop
+                  ? `translate(${mousePos.x * 12}px, ${-mousePos.y * 12}px)`
                   : 'none',
             }}
           >
@@ -163,23 +173,21 @@ export default function ProjectSlide() {
         </motion.article>
       </AnimatePresence>
 
-      {/* PAGINATION */}
+      {/* Pagination */}
       <div className="flex gap-2">
         {projects.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
             className={`w-3 h-3 rounded-full transition ${
-              i === index
-                ? 'bg-green-500 scale-125'
-                : 'bg-neutral-600'
+              i === index ? 'bg-green-500 scale-125' : 'bg-neutral-600'
             }`}
             aria-label={`Projet ${i + 1}`}
           />
         ))}
       </div>
 
-      {/* NAVIGATION */}
+      {/* Navigation */}
       <div className="flex gap-4">
         <button
           onClick={prev}
@@ -205,4 +213,3 @@ export default function ProjectSlide() {
     </div>
   );
 }
-

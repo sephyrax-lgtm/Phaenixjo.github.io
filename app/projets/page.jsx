@@ -1,12 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectSlide from './ProjectSlide';
 import { FaProjectDiagram } from 'react-icons/fa';
 
 export default function ProjetsPage() {
-  // Liste des comptes-rendus avec le lien vers le PDF
+  // Liste des comptes-rendus avec lien vers le PDF
   const comptesRendus = [
     { title: "Système de partitionnement", pdf: "/pdfs/partitionnement.pdf" },
     { title: "Création d'une interface graphique JAVA FXML", pdf: "/pdfs/java-fxml.pdf" },
@@ -16,13 +15,6 @@ export default function ProjetsPage() {
     { title: "Application Java pour gérer un répertoire", pdf: "/pdfs/repertoire.pdf" },
     { title: "Packet Tracer - Mise en place d'un serveur web", pdf: "/pdfs/serveur-web.pdf" },
   ];
-
-  const [pdfToShow, setPdfToShow] = useState(null);
-
-  // Ouvrir un PDF dans le modal
-  const handleOpenPdf = (pdf) => {
-    setPdfToShow(pdf);
-  };
 
   return (
     <main className="min-h-screen bg-black text-white pt-28 pb-20">
@@ -78,39 +70,26 @@ export default function ProjetsPage() {
           </p>
 
           {/* Liste des comptes-rendus */}
-          <div className="flex flex-col gap-6 items-center">
+          <div className="flex flex-col gap-6 items-center w-full">
             {comptesRendus.map((cr, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.02, boxShadow: "0 0 50px rgba(0,255,128,0.5)" }}
-                onClick={() => handleOpenPdf(cr.pdf)}
-                className="bg-neutral-900/60 backdrop-blur-md border border-cyan-500/20 rounded-xl p-6 flex items-center w-full max-w-full h-24 cursor-pointer text-white font-semibold shadow-md transition"
+                className="bg-neutral-900/60 backdrop-blur-md border border-cyan-500/20 rounded-xl p-6 flex items-center w-full max-w-4xl h-24 cursor-pointer text-white font-semibold shadow-md transition"
               >
-                <span className="ml-6 text-lg md:text-xl">{cr.title}</span>
+                {/* Lien pour ouvrir le PDF dans un nouvel onglet */}
+                <a
+                  href={cr.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-6 text-lg md:text-xl w-full h-full flex items-center"
+                >
+                  {cr.title}
+                </a>
               </motion.div>
             ))}
           </div>
         </motion.section>
-
-        {/* Modal pour afficher le PDF */}
-        {pdfToShow && (
-          <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4">
-            <div className="bg-neutral-900 rounded-lg w-full max-w-4xl h-[80vh] relative">
-              <button
-                onClick={() => setPdfToShow(null)}
-                className="absolute top-4 right-4 text-white text-xl font-bold"
-              >
-                ✕
-              </button>
-              <iframe
-                src={pdfToShow}
-                className="w-full h-full rounded-lg"
-                title="Compte-rendu PDF"
-              />
-            </div>
-          </div>
-        )}
-
       </div>
     </main>
   );
