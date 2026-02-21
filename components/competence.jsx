@@ -5,9 +5,9 @@ import * as HoverCard from '@radix-ui/react-hover-card';
 import {
   FaHtml5, FaCss3Alt, FaJs, FaPhp, FaPython,
   FaLinux, FaWindows, FaDatabase, FaReact, FaJava,
-  FaMicrochip, FaNetworkWired, FaGithub, FaDocker, FaVuejs, FaGitAlt
+  FaMicrochip, FaNetworkWired, FaGithub, FaDocker, FaVuejs, FaGitAlt, FaNodeJs
 } from 'react-icons/fa';
-import { SiNextdotjs, SiTailwindcss, SiKubernetes, SiMariadb } from 'react-icons/si';
+import { SiNextdotjs, SiTailwindcss, SiKubernetes, SiMariadb, SiExpress } from 'react-icons/si';
 
 const skills = [
   { name: 'HTML', icon: FaHtml5, color: 'text-orange-500' },
@@ -15,6 +15,8 @@ const skills = [
   { name: 'JavaScript', icon: FaJs, color: 'text-yellow-400' },
   { name: 'PHP', icon: FaPhp, color: 'text-indigo-400' },
   { name: 'Python', icon: FaPython, color: 'text-blue-400' },
+  { name: 'Node.js', icon: FaNodeJs, color: 'text-green-500' },
+  { name: 'Express.js', icon: SiExpress, color: 'text-gray-300' },
   { name: 'Linux', icon: FaLinux, color: 'text-gray-300' },
   { name: 'Windows', icon: FaWindows, color: 'text-blue-600' },
   { name: 'SQL', icon: FaDatabase, color: 'text-purple-400' },

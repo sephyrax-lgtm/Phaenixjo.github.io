@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "AKILABANA Joseph | Portfolio",
+  title: "AKILABANA Joseph - Portfolio",
   description: "Portfolio de Joseph Akilabana - Développeur Web",
 };
 

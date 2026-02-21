@@ -8,7 +8,7 @@ const projects = [
     image: "/images/projet image.png", 
     image: "/images/projet image1.png",
     liveLink: "https://demo.com",
-    codeLink: "https://github.com",
+    codeLink: "https://github.com/sephyrax-lgtm/Phaenixjo.github.io",
   },
 
   {
@@ -19,7 +19,7 @@ const projects = [
     techs: ["HTML", "CSS"],
     image: "/images/imagepro.png",
     liveLink: "https://demo.com",
-    codeLink: "https://github.com",
+    codeLink: "https://github.com/sephyrax-lgtm/Phaenixjo.github.io",
   },
 
   {
@@ -30,7 +30,7 @@ const projects = [
     techs: ["Vue.js", "Pinia", "Tailwind CSS"],
     image: "/images/image2.png",
     liveLink: "https://demo.com",
-    codeLink: "https://github.com",
+    codeLink: "https://github.com/sephyrax-lgtm/gsh_social",
   },
 
   {
@@ -47,9 +47,9 @@ const projects = [
       "API REST",
       "RBAC",
     ],
-    image: "/images/dashboard.png",
-    liveLink: "https://demo.com",
-    codeLink: "https://github.com/username/admin-dashboard",
+    image: "/images/Dashboard.png",
+    liveLink: "https://bastion.w3tel.local/",
+    codeLink: "https://github.com/sephyrax-lgtm/W3TEL",
   },
 
   {
