@@ -11,7 +11,7 @@ export default function ProjetsPage() {
   { title: "Création d'une interface graphique JAVA FXML", pdf: "/pdfs/java-fxml.pdf" },
   { title: "Identité Numérique", pdf: "/pdfs/Identite.pdf" },
   { title: "La base en Java", pdf: "/pdfs/base-java.pdf" },
-  { title: "Utilisateurs et droits", pdf: "/pdfs/droits.pdf" },
+  { title: "Utilisateurs et droits", pdf: "/pdfs/Droits.pdf" },
   { title: "Application Java pour gérer un répertoire", pdf: "/pdfs/repertoire.pdf" },
   { title: "Packet Tracer - Mise en place d'un serveur web", pdf: "/pdfs/Serveur-web.pdf" },
 ];
