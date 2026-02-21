@@ -66,7 +66,7 @@ export default function ProjetsPage() {
 
           <p className="text-gray-300 text-center mb-8 max-w-2xl mx-auto">
             Les comptes-rendus sont publiés, mis à jour et accessibles à tout lecteur.
-            Ils sont triés par date et classés selon les 3 blocs du BTS SIO :
+            Ils sont triés par classés selon les 3 blocs du BTS SIO :
             Bloc 1 (Services informatiques), Bloc 2 (SLAM) et Bloc 3 (Cybersécurité).
           </p>
 
