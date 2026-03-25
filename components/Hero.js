@@ -7,27 +7,34 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center bg-black text-white px-6"
     >
-      {/* Conteneur central (important pour écran large) */}
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center text-center pt-24 pb-20">
 
         {/* Cercle animé + photo */}
         <div className="relative w-56 h-56 mb-8">
+
+          {/* Cercle glow animé */}
+          <div className="absolute inset-0 rounded-full bg-green-400 opacity-20 blur-xl animate-pulse"></div>
+
+          {/* Anneaux rotatifs */}
           {[...Array(8)].map((_, i) => (
             <div
               key={i}
-              className="absolute inset-0 rounded-full border-[4px] border-transparent border-t-green-400"
+              className="absolute inset-0 rounded-full border-[3px] border-transparent border-t-green-400"
               style={{
                 transform: `rotate(${i * 45}deg)`,
-                animation: "spin 20s linear infinite",
-                animationDelay: `${-i * 2.5}s`,
+                animation: "spin 12s linear infinite",
+                animationDelay: `${-i * 1.5}s`,
               }}
             />
           ))}
 
+          {/* Cercle fixe (outline clean) */}
+          <div className="absolute inset-0 rounded-full border-2 border-green-400 opacity-40"></div>
+
           {/* Photo */}
           <div className="absolute inset-0 rounded-full overflow-hidden z-10">
             <Image
-              src="/images/IMG_2556.jpeg"
+              src="/images/photo_pro.jpeg"
               alt="Photo de Joseph Akilabana"
               fill
               className="object-cover"
@@ -64,7 +71,6 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-green-400 hover:scale-125 transition"
-            aria-label="GitHub"
           >
             <FaGithub />
           </a>
@@ -74,7 +80,6 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-green-400 hover:scale-125 transition"
-            aria-label="LinkedIn"
           >
             <FaLinkedin />
           </a>
@@ -84,34 +89,11 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-green-400 hover:scale-125 transition"
-            aria-label="Instagram"
           >
             <FaInstagram />
           </a>
         </div>
 
-        {/* Statistiques */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center w-full max-w-4xl">
-          <div>
-            <p className="text-3xl font-bold">2+</p>
-            <p className="text-gray-400">Années d’expérience</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold">2+</p>
-            <p className="text-gray-400">Projets réalisés</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold">12+</p>
-            <p className="text-gray-400">Technologies maîtrisées</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold">100+</p>
-            <p className="text-gray-400">Commits de code</p>
-          </div>
-        </div>
       </div>
     </section>
   );
