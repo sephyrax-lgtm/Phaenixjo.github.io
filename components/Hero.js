@@ -7,12 +7,13 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center bg-black text-white px-6"
     >
+      {/* Conteneur central */}
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center text-center pt-24 pb-20">
 
         {/* Cercle animé + photo */}
         <div className="relative w-56 h-56 mb-8">
 
-          {/* Cercle glow animé */}
+          {/* Glow vert animé */}
           <div className="absolute inset-0 rounded-full bg-green-400 opacity-20 blur-xl animate-pulse"></div>
 
           {/* Anneaux rotatifs */}
@@ -28,7 +29,7 @@ export default function Hero() {
             />
           ))}
 
-          {/* Cercle fixe (outline clean) */}
+          {/* Cercle contour */}
           <div className="absolute inset-0 rounded-full border-2 border-green-400 opacity-40"></div>
 
           {/* Photo */}
@@ -49,8 +50,9 @@ export default function Hero() {
           <span className="text-green-400">Joseph Akilabana</span>
         </h1>
 
+        {/* Description */}
         <p className="text-lg text-gray-400 mb-6 max-w-2xl">
-          Développeur web et étudiant en BTS SIO option SLAM
+          Développeur web et étudiant en BTS SIO, option SLAM.
         </p>
 
         {/* Bouton CV */}
@@ -71,6 +73,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-green-400 hover:scale-125 transition"
+            aria-label="GitHub"
           >
             <FaGithub />
           </a>
@@ -80,6 +83,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-green-400 hover:scale-125 transition"
+            aria-label="LinkedIn"
           >
             <FaLinkedin />
           </a>
@@ -89,12 +93,47 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-green-400 hover:scale-125 transition"
+            aria-label="Instagram"
           >
             <FaInstagram />
           </a>
         </div>
 
+        {/* Statistiques */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center w-full max-w-4xl">
+          <div>
+            <p className="text-3xl font-bold">2+</p>
+            <p className="text-gray-400">Années d’expérience</p>
+          </div>
+
+          <div>
+            <p className="text-3xl font-bold">2+</p>
+            <p className="text-gray-400">Projets réalisés</p>
+          </div>
+
+          <div>
+            <p className="text-3xl font-bold">12+</p>
+            <p className="text-gray-400">Technologies maîtrisées</p>
+          </div>
+
+          <div>
+            <p className="text-3xl font-bold">100+</p>
+            <p className="text-gray-400">Commits de code</p>
+          </div>
+        </div>
       </div>
+
+      {/* Animation spin */}
+      <style jsx>{`
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </section>
   );
 }
