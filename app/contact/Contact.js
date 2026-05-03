@@ -17,7 +17,7 @@ export default function Contact() {
     const data = new FormData(form);
 
     try {
-      const res = await fetch('https://formspree.io/f/mgvkglen', {
+      const res = await fetch(process.env.NEXT_PUBLIC_FORM_ENDPOINT, {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' },

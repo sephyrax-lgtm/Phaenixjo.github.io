@@ -48,7 +48,7 @@ export default function Header() {
 
           <Link href="/contact">
             <span className="bg-green-400 text-black font-bold py-2 px-6 rounded hover:bg-green-300 transition">
-              Contacte-moi
+              Contactez-moi
             </span>
           </Link>
         </nav>
@@ -87,7 +87,7 @@ export default function Header() {
 
               <Link href="/contact" onClick={() => setOpen(false)}>
                 <span className="bg-green-400 text-black font-bold py-3 px-8 rounded hover:bg-green-300 transition">
-                  Contacte-moi
+                  Contactez-moi
                 </span>
               </Link>
             </div>

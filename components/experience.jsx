@@ -23,7 +23,7 @@ const experiences = [
 • Bases du SQL`,
   },
   {
-    date: "07 juillet 2025 - 02 juillet 2025",
+    date: "07 juillet 2024 - 02 août 2024",
     description: `Agent de propreté urbaine • Brétigny-sur-Orge
 
 • Collecte et tri des déchets

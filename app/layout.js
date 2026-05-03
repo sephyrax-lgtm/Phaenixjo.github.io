@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -14,8 +15,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "AKILABANA Joseph - Portfolio",
-  description: "Portfolio de Joseph Akilabana - Développeur Web",
+  title: {
+    default: "AKILABANA Joseph - Portfolio",
+    template: "%s | Joseph Akilabana",
+  },
+  description: "Portfolio de Joseph Akilabana - Développeur Web & étudiant en BTS SIO SLAM. Découvrez mes projets, compétences et parcours.",
+  keywords: ["Joseph Akilabana", "portfolio", "développeur web", "BTS SIO", "SLAM", "Next.js", "React"],
+  authors: [{ name: "Joseph Akilabana" }],
+  openGraph: {
+    title: "AKILABANA Joseph - Portfolio",
+    description: "Portfolio de Joseph Akilabana - Développeur Web & étudiant en BTS SIO SLAM.",
+    type: "website",
+    locale: "fr_FR",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -38,7 +50,11 @@ export default function RootLayout({ children }) {
         <main className="pt-24">
           {children}
         </main>
+
+        {/* Footer */}
+        <Footer />
       </body>
     </html>
   );
 }
+

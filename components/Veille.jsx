@@ -1,7 +1,9 @@
 'use client';
 
+
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+
 
 const veilles = [
   {
@@ -12,7 +14,14 @@ const veilles = [
     url: "https://www.techniques-ingenieur.fr/actualite/articles/ordinateur-quantique-qap-entraine-les-entreprises-153783/",
     resume: "L’adoption progressive du calcul quantique marque une rupture technologique majeure dans les systèmes informatiques complexes.",
   },
-  
+  {
+    id: 2,
+    titre: "IBM repousse les limites de la correction d’erreurs quantiques",
+    source: "Boursorama",
+    date: "2025",
+    url: "https://www.boursorama.com/bourse/actualites-amp/ibm-devoile-de-nouveaux-processeurs-quantiques-pour-franchir-la-barriere-de-l-erreur-en-2029-d1c8bb81bf838b6cdf8a97b19ff20ca5",
+    resume: "IBM développe de nouveaux processeurs quantiques visant à améliorer la stabilité et la fiabilité des calculs complexes.",
+  },
   {
     id: 3,
     titre: "Les risques du calcul quantique sur la cryptographie",
@@ -29,7 +38,38 @@ const veilles = [
     url: "https://www.radiofrance.fr/franceinfo/podcasts/le-billet-sciences/le-billet-sciences-6295752",
     resume: "Une analyse vulgarisée des enjeux liés à l’informatique quantique et à ses impacts sur la sécurité numérique.",
   },
-  
+  {
+    id: 5,
+    titre: "Un acteur hors Europe s’impose dans le calcul quantique",
+    source: "LesNews.ca",
+    date: "2025",
+    url: "https://lesnews.ca/sciences/un-pays-hors-deurope-avec-un-ordinateur-quantique-menace-ou-opportunite/",
+    resume: "Un pays non européen investit massivement dans le calcul quantique, bouleversant l’équilibre technologique mondial.",
+  },
+  {
+    id: 6,
+    titre: "Une avancée majeure en simulation quantique",
+    source: "Redac Info",
+    date: "2025",
+    url: "https://redac.info/cet-ordinateur-quantique-vient-de-franchir-une-limite-que-personne-ne-pensait-possible-il-simule-le-secret-cache-derriere-la-supraconductivite/",
+    resume: "Une simulation quantique innovante ouvre de nouvelles perspectives dans la compréhension de la supraconductivité.",
+  },
+  {
+    id: 7,
+    titre: "Une start-up française explore une nouvelle voie quantique",
+    source: "Futura Sciences",
+    date: "2025",
+    url: "https://www.futura-sciences.com/tech/actualites/ordinateur-quantique-cette-start-up-francaise-pense-avoir-trouve-autre-voie-construire-ordinateur-quantique-125981/",
+    resume: "Une entreprise française propose une approche alternative pour la conception des ordinateurs quantiques.",
+  },
+  {
+    id: 8,
+    titre: "IQM investit 40 millions d’euros en Finlande",
+    source: "AFP",
+    date: "2025",
+    url: "https://www.afp.com/fr/infos/iqm-va-investir-plus-de-40-millions-deuros-pour-agrandir-son-site-de-production-en-finlande",
+    resume: "L’Europe renforce ses capacités industrielles dans le domaine de l’informatique quantique.",
+  },
   {
     id: 9,
     titre: "La France anticipe la cybersécurité post-quantique",
@@ -40,8 +80,10 @@ const veilles = [
   },
 ];
 
+
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
 const item = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } } };
+
 
 export default function Veille() {
   return (
@@ -60,6 +102,7 @@ export default function Veille() {
         </p>
       </header>
 
+
       {/* MÉTHODOLOGIE */}
       <div className="max-w-xl mx-auto rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 md:p-6 text-sm md:text-base text-neutral-300">
         <h3 className="font-semibold text-white mb-2">Méthodologie de veille</h3>
@@ -67,6 +110,7 @@ export default function Veille() {
           Les informations sont collectées via Google Alertes, Feedly et médias scientifiques fiables. Les articles sont sélectionnés selon leur fiabilité, actualité et pertinence.
         </p>
       </div>
+
 
       {/* ARTICLES */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -95,3 +139,6 @@ export default function Veille() {
     </motion.section>
   );
 }
+
+
+

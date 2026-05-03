@@ -24,7 +24,7 @@ export default function DiplomeFormation({ data = [] }) {
           <p className="text-gray-300 font-semibold">
             {diplome.etablissement} — <span className="italic">{diplome.lieu}</span>
           </p>
-          <p className="text-gray-400 mt-1">{diplome.année}</p>
+          <p className="text-gray-400 mt-1">{diplome.annee}</p>
         </motion.div>
       ))}
     </div>

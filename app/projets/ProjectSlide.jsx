@@ -191,6 +191,7 @@ export default function ProjectSlide() {
       <div className="flex gap-4">
         <button
           onClick={prev}
+          aria-label="Projet précédent"
           className="
             w-12 h-12 rounded-lg
             bg-green-500 text-black text-2xl
@@ -201,6 +202,7 @@ export default function ProjectSlide() {
         </button>
         <button
           onClick={next}
+          aria-label="Projet suivant"
           className="
             w-12 h-12 rounded-lg
             bg-green-500 text-black text-2xl

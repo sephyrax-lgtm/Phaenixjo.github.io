@@ -7,7 +7,7 @@ const certifications = [
   { id: 2, nom: "Apprendre les bases du langage Python", organisme: "OpenClassrooms", date: "2025", file: "/images/cert2.png" },
   { id: 3, nom: "Créez votre site web avec HTML5 et CSS3", organisme: "OpenClassrooms", date: "2025", file: "/images/cert3.png" },
   { id: 4, nom: "Apprendre à programmer avec JavaScript", organisme: "OpenClassrooms", date: "2025", file: "/images/cert4.png" },
-  { id: 5, nom: "PIX", organisme: "PIX", date: "2023", file: "/Note_PIX.pdf" },
+  { id: 5, nom: "PIX", organisme: "PIX", date: "2023", file: "#" },
   { id: 6, nom: "Certification ANSSI", organisme: "ANSSI", date: "2024", file: "/images/cert7.png" },
   { id: 7, nom: "Atelier RGPD", organisme: "CNIL", date: "2025", file: "/images/cert6.png" },
   { id: 8, nom: "Initiez-vous à Linux", organisme: "OpenClassrooms", date: "2025", file: "/images/cert8.png" },
