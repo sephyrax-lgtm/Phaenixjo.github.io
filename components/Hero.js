@@ -52,7 +52,7 @@ export default function Hero() {
 
         {/* Description */}
         <p className="text-lg text-gray-400 mb-6 max-w-2xl">
-          Développeur web et étudiant en BTS SIO, option SLAM.
+          Développeur web Full-Stack et étudiant en BTS SIO, option SLAM.
         </p>
 
         {/* Bouton CV */}
@@ -89,7 +89,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="https://www.instagram.com/jm_sky24/"
+            href="https://www.instagram.com/phaenixjo/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-green-400 hover:scale-125 transition"

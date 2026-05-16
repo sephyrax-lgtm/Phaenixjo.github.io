@@ -74,7 +74,7 @@ export default function Footer() {
                 <FaLinkedin />
               </a>
               <a
-                href="https://www.instagram.com/jm_sky24/"
+                href="https://www.instagram.com/phaenixjo/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xl hover:text-green-400 hover:scale-110 transition"
