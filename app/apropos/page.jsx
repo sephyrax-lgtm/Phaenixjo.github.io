@@ -7,8 +7,8 @@ export const metadata = {
 
 export default function AProposPage() {
   return (
-    <main className="min-h-screen pt-24 px-6 bg-black text-white">
-      <div className="max-w-6xl mx-auto py-16">
+    <main className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-black text-white relative overflow-hidden">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto">
         <About />
       </div>
     </main>

@@ -46,6 +46,37 @@ const projects = [
     image: "/images/Dashboard.png",
     codeLink: "https://github.com/sephyrax-lgtm/W3TEL",
   },
+  {
+    number: "05",
+    title: "Velib",
+    description:
+      "Vélib est une application web permettant aux utilisateurs de consulter en temps réel l'état des stations Vélib' sur Paris et sa petite couronne. L'application propose une liste complète des stations avec leur statut, numéro, nom et disponibilité des bornes de paiement. Un système de filtres permet de rechercher par arrondissement, département (92, 93, 94).",
+    techs: [
+      "Java Script",
+      "Node.js",
+      "Tailwind CSS",
+      "API REST",
+    ],
+    image: "/images/velib_image.png",
+    codeLink: "https://github.com/sephyrax-lgtm/Velib",
+  },
+  {
+    number: "06",
+    title: "DevTracker",
+    description:
+      "DevTracker est un SaaS full-stack que j'ai conçu de A à Z, similaire à Toggl ou Harvest. Il permet de tracker son temps en temps réel, gérer ses clients et visualiser ses revenus via un dashboard analytique.",
+    techs: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL (Neon)",
+      "Clerk Auth",
+      "Stripe",
+      "Tailwind CSS",
+    ],
+    image: "/images/Devtracker_image.png",
+    codeLink: "https://github.com/sephyrax-lgtm/Devtracker",
+  },
 ];
 
 export default projects;

@@ -1,9 +1,7 @@
 'use client';
 
-
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-
+import { ArrowUpRight, Rss } from "lucide-react";
 
 const veilles = [
   {
@@ -80,65 +78,110 @@ const veilles = [
   },
 ];
 
-
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
-const item = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } } };
-
+const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
+const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } };
 
 export default function Veille() {
   return (
-    <motion.section
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.1 }}
-      className="space-y-10 px-4 md:px-8"
-    >
+    <div className="space-y-12">
+      
       {/* TITRE */}
-      <header className="text-center space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-white">Veille technologique</h2>
-        <p className="max-w-xl mx-auto text-sm md:text-base text-neutral-400 leading-relaxed">
-          Veille consacrée à l’informatique quantique, domaine émergent exploitant les principes de la mécanique quantique pour résoudre des problématiques inaccessibles à l’informatique classique.
-        </p>
-      </header>
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center space-y-4"
+      >
+        <h2 className="text-3xl md:text-4xl font-extrabold">
+          <span className="bg-gradient-to-r from-white via-white to-neutral-500 bg-clip-text text-transparent">
+            Veille{' '}
+          </span>
+          <span className="bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
+            Technologique
+          </span>
+        </h2>
+        
+        {/* Ligne décorative */}
+        <div className="flex items-center justify-center gap-3 py-2">
+          <div className="h-px w-12 bg-gradient-to-r from-transparent via-green-500/40 to-transparent" />
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.6)]" />
+          <div className="h-px w-12 bg-gradient-to-l from-transparent via-green-500/40 to-transparent" />
+        </div>
+      </motion.div>
 
+      {/* HEADER CONTENT */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="max-w-4xl mx-auto flex flex-col md:flex-row gap-6"
+      >
+        <div className="flex-1 bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 p-6 rounded-2xl shadow-lg relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/5 rounded-full blur-2xl" />
+          <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+            <Rss size={18} className="text-green-400" /> Sujet d'étude
+          </h3>
+          <p className="text-sm md:text-base text-neutral-400 leading-relaxed relative z-10">
+            L’informatique quantique est un domaine émergent exploitant les principes de la mécanique quantique pour résoudre des problématiques inaccessibles à l’informatique classique, menaçant notamment les méthodes de cryptographie actuelles.
+          </p>
+        </div>
 
-      {/* MÉTHODOLOGIE */}
-      <div className="max-w-xl mx-auto rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 md:p-6 text-sm md:text-base text-neutral-300">
-        <h3 className="font-semibold text-white mb-2">Méthodologie de veille</h3>
-        <p>
-          Les informations sont collectées via Google Alertes, Feedly et médias scientifiques fiables. Les articles sont sélectionnés selon leur fiabilité, actualité et pertinence.
-        </p>
-      </div>
+        <div className="flex-1 bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 p-6 rounded-2xl shadow-lg relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl" />
+          <h3 className="text-lg font-bold text-white mb-2">Méthodologie</h3>
+          <p className="text-sm md:text-base text-neutral-400 leading-relaxed relative z-10">
+            Collecte d'informations via Google Alertes, Feedly et revues scientifiques. Les articles sont filtrés selon leur fiabilité, actualité et pertinence par rapport à l'évolution de la technologie quantique.
+          </p>
+        </div>
+      </motion.div>
 
-
-      {/* ARTICLES */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {/* ARTICLES GRID */}
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+      >
         {veilles.map(article => (
-          <motion.article
+          <motion.a
             key={article.id}
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
             variants={item}
-            className="group rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4 md:p-6 transition hover:border-green-500 hover:bg-neutral-900"
+            whileHover={{ y: -5 }}
+            className="group flex flex-col justify-between rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm p-6 transition-all duration-300 hover:border-green-500/40 hover:bg-neutral-800/60 hover:shadow-[0_0_30px_rgba(74,222,128,0.08)] relative overflow-hidden"
           >
-            <div className="space-y-2">
-              <h4 className="text-lg font-semibold text-white">{article.titre}</h4>
-              <p className="text-xs md:text-sm text-neutral-400">{article.source} • {article.date}</p>
-              <p className="text-sm text-neutral-300 leading-relaxed">{article.resume}</p>
-              <a
-                href={article.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-green-400 hover:text-green-300 font-medium text-sm md:text-base transition"
-              >
-                Lire l’article <ArrowUpRight size={16} />
-              </a>
+            {/* Ligne accent au hover */}
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            <div className="space-y-4">
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-green-400 bg-green-400/10 px-2 py-1 rounded">
+                    {article.date}
+                  </span>
+                  <ArrowUpRight size={16} className="text-neutral-500 group-hover:text-green-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                </div>
+                <h4 className="text-base font-bold text-gray-200 group-hover:text-white transition-colors leading-snug line-clamp-2">
+                  {article.titre}
+                </h4>
+                <p className="text-xs text-neutral-500 mt-1">{article.source}</p>
+              </div>
+              
+              <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+                {article.resume}
+              </p>
             </div>
-          </motion.article>
+            
+            <div className="mt-4 pt-4 border-t border-neutral-800 group-hover:border-neutral-700 transition-colors">
+              <span className="text-xs font-semibold text-neutral-500 group-hover:text-green-400 transition-colors flex items-center gap-1">
+                Lire l'article
+              </span>
+            </div>
+          </motion.a>
         ))}
-      </div>
-    </motion.section>
+      </motion.div>
+    </div>
   );
 }
-
-
-

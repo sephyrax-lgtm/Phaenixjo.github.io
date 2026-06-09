@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MapPin, CheckCircle, XCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, CheckCircle, XCircle, Send, Loader2 } from 'lucide-react';
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -27,110 +27,237 @@ export default function Contact() {
         setSent(true);
         setError(false);
         form.reset();
+        // Hide success message after 5 seconds
+        setTimeout(() => setSent(false), 5000);
       } else {
         setError(true);
+        setTimeout(() => setError(false), 5000);
       }
     } catch {
       setError(true);
+      setTimeout(() => setError(false), 5000);
     } finally {
       setLoading(false);
     }
   };
 
+  const contactInfo = [
+    {
+      icon: Phone,
+      label: "Téléphone",
+      value: "07 44 85 59 14",
+      href: "tel:+33744855914",
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "akilabanajoseph@gmail.com",
+      href: "mailto:akilabanajoseph@gmail.com",
+    },
+    {
+      icon: MapPin,
+      label: "Localisation",
+      value: "91220 Brétigny-sur-Orge",
+      href: null,
+    },
+  ];
+
   return (
-    <section className="mt-16 w-full max-w-4xl bg-black/70 backdrop-blur-xl p-10 rounded-3xl shadow-2xl flex flex-col gap-8 border border-gray-800">
-      
-      {/* Titre */}
-      <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-green-400 mb-2">Travaillons ensemble</h2>
-        <p className="text-gray-300 max-w-xl mx-auto">
-          Vous avez un projet ou une question ? Remplissez le formulaire ci-dessous pour me contacter.
-        </p>
-      </div>
-
-      {/* Feedback messages */}
-      <AnimatePresence>
-        {sent && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="flex items-center gap-2 text-green-400 bg-green-900/20 p-3 rounded-lg font-semibold shadow-md"
-          >
-            <CheckCircle size={20} /> Message envoyé avec succès !
-          </motion.div>
-        )}
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="flex items-center gap-2 text-red-400 bg-red-900/20 p-3 rounded-lg font-semibold shadow-md"
-          >
-            <XCircle size={20} /> Une erreur est survenue. Veuillez réessayer.
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Formulaire */}
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          name="prenom"
-          type="text"
-          required
-          placeholder="Prénom"
-          className="p-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-        />
-        <input
-          name="nom"
-          type="text"
-          required
-          placeholder="Nom"
-          className="p-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-        />
-        <input
-          name="email"
-          type="email"
-          required
-          placeholder="Email"
-          className="p-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2"
-        />
-        <select
-          name="service"
-          className="p-4 rounded-xl bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2"
+    <div className="w-full max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
+        
+        {/* Colonne de gauche : Informations de contact */}
+        <motion.div 
+          className="lg:col-span-2 space-y-8"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <option value="">Choisir un service</option>
-          <option>Développement Web</option>
-          <option>Design UI/UX</option>
-        </select>
-        <textarea
-          name="message"
-          rows="5"
-          required
-          placeholder="Votre message"
-          className="p-4 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition md:col-span-2"
-        />
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold">
+              <span className="bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
+                Travaillons{' '}
+              </span>
+              <span className="text-green-400 block sm:inline">ensemble</span>
+            </h2>
+            <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+              Vous avez un projet en tête ou une question ? N'hésitez pas à me contacter via ce formulaire ou directement via mes coordonnées.
+            </p>
+          </div>
 
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          type="submit"
-          disabled={loading}
-          className={`md:col-span-2 p-4 font-bold rounded-xl transition ${
-            loading
-              ? 'bg-gray-500 cursor-not-allowed'
-              : 'bg-green-400 text-black hover:bg-green-300'
-          }`}
+          <div className="space-y-4 pt-4">
+            {contactInfo.map((info, idx) => {
+              const Icon = info.icon;
+              const CardContent = (
+                <div className="flex items-center gap-5 p-5 rounded-2xl bg-neutral-900/50 border border-neutral-800 hover:border-green-500/30 hover:bg-neutral-800/50 transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-green-500/20 transition-all duration-300">
+                    <Icon className="text-green-400" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-neutral-500 font-medium mb-1">{info.label}</p>
+                    <p className="text-neutral-200 font-semibold group-hover:text-white transition-colors">{info.value}</p>
+                  </div>
+                </div>
+              );
+
+              return info.href ? (
+                <a key={idx} href={info.href} className="block w-full outline-none focus-visible:ring-2 focus-visible:ring-green-400 rounded-2xl">
+                  {CardContent}
+                </a>
+              ) : (
+                <div key={idx}>
+                  {CardContent}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Décoration */}
+          <div className="hidden lg:block w-32 h-32 bg-green-500/5 rounded-full blur-3xl mt-10" />
+        </motion.div>
+
+        {/* Colonne de droite : Formulaire */}
+        <motion.div 
+          className="lg:col-span-3 relative"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
         >
-          {loading ? 'Envoi en cours...' : 'Envoyer le message'}
-        </motion.button>
-      </form>
+          {/* Glow derrière le formulaire */}
+          <div className="absolute -inset-1 bg-gradient-to-br from-green-500/20 via-emerald-500/5 to-transparent rounded-[2rem] blur-xl opacity-50 pointer-events-none" />
+          
+          <div className="relative bg-neutral-900/80 backdrop-blur-xl p-8 sm:p-10 rounded-[2rem] border border-neutral-800 shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden">
+            
+            {/* Ligne lumineuse */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent" />
 
-      {/* Coordonnées */}
-      <div className="flex flex-col md:flex-row md:justify-between items-start gap-4 text-gray-300 mt-6">
-        <p className="flex items-center gap-2"><Phone size={18} className="text-green-400" /> 07 44 85 59 14</p>
-        <p className="flex items-center gap-2"><Mail size={18} className="text-green-400" /> akilabanajoseph@gmail.com</p>
-        <p className="flex items-center gap-2"><MapPin size={18} className="text-green-400" /> 91220 Brétigny-sur-Orge</p>
+            {/* Feedback messages */}
+            <AnimatePresence mode="wait">
+              {sent && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, marginBottom: 0 }}
+                  animate={{ opacity: 1, height: 'auto', marginBottom: 24 }}
+                  exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+                  className="overflow-hidden"
+                >
+                  <div className="flex items-center gap-3 text-green-400 bg-green-500/10 border border-green-500/20 p-4 rounded-xl font-medium">
+                    <CheckCircle size={20} className="flex-shrink-0" /> 
+                    <span>Message envoyé avec succès ! Je vous répondrai rapidement.</span>
+                  </div>
+                </motion.div>
+              )}
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, marginBottom: 0 }}
+                  animate={{ opacity: 1, height: 'auto', marginBottom: 24 }}
+                  exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+                  className="overflow-hidden"
+                >
+                  <div className="flex items-center gap-3 text-red-400 bg-red-500/10 border border-red-500/20 p-4 rounded-xl font-medium">
+                    <XCircle size={20} className="flex-shrink-0" /> 
+                    <span>Une erreur est survenue lors de l'envoi. Veuillez réessayer.</span>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-neutral-400 pl-1">Prénom</label>
+                <input
+                  name="prenom"
+                  type="text"
+                  required
+                  placeholder="John"
+                  className="w-full p-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-300"
+                />
+              </div>
+              
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-neutral-400 pl-1">Nom</label>
+                <input
+                  name="nom"
+                  type="text"
+                  required
+                  placeholder="Doe"
+                  className="w-full p-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-300"
+                />
+              </div>
+              
+              <div className="space-y-1.5 md:col-span-2">
+                <label className="text-sm font-medium text-neutral-400 pl-1">Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="john.doe@exemple.com"
+                  className="w-full p-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-300"
+                />
+              </div>
+              
+              <div className="space-y-1.5 md:col-span-2">
+                <label className="text-sm font-medium text-neutral-400 pl-1">Service souhaité</label>
+                <div className="relative">
+                  <select
+                    name="service"
+                    required
+                    className="w-full p-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-300 appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled selected className="text-neutral-600">Sélectionnez un service</option>
+                    <option value="Développement Web" className="bg-neutral-900 text-white">Développement Web</option>
+                    <option value="Design UI/UX" className="bg-neutral-900 text-white">Design UI/UX</option>
+                    <option value="Autre demande" className="bg-neutral-900 text-white">Autre demande</option>
+                  </select>
+                  {/* Flèche personnalisée pour le select */}
+                  <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-neutral-400">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                      <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-1.5 md:col-span-2">
+                <label className="text-sm font-medium text-neutral-400 pl-1">Message</label>
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Décrivez votre projet ou votre demande..."
+                  className="w-full p-4 rounded-xl bg-neutral-950/50 border border-neutral-800 text-white placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-300 resize-y"
+                />
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                disabled={loading}
+                className={`
+                  md:col-span-2 mt-2 w-full p-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg
+                  ${loading
+                    ? 'bg-neutral-800 text-neutral-400 cursor-not-allowed border border-neutral-700'
+                    : 'bg-gradient-to-r from-green-500 to-emerald-400 text-black hover:shadow-[0_0_20px_rgba(74,222,128,0.4)] border border-transparent'
+                  }
+                `}
+              >
+                {loading ? (
+                  <>
+                    <Loader2 size={20} className="animate-spin" />
+                    Envoi en cours...
+                  </>
+                ) : (
+                  <>
+                    <Send size={18} />
+                    Envoyer le message
+                  </>
+                )}
+              </motion.button>
+            </form>
+          </div>
+        </motion.div>
+
       </div>
-    </section>
+    </div>
   );
 }

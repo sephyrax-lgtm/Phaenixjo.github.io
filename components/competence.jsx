@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import * as HoverCard from '@radix-ui/react-hover-card';
 import {
   FaHtml5, FaCss3Alt, FaJs, FaPhp, FaPython,
   FaLinux, FaWindows, FaDatabase, FaReact, FaJava,
@@ -10,64 +9,95 @@ import {
 import { SiNextdotjs, SiTailwindcss, SiKubernetes, SiMariadb, SiExpress } from 'react-icons/si';
 
 const skills = [
-  { name: 'HTML', icon: FaHtml5, color: 'text-orange-500' },
-  { name: 'CSS', icon: FaCss3Alt, color: 'text-blue-500' },
-  { name: 'JavaScript', icon: FaJs, color: 'text-yellow-400' },
-  { name: 'PHP', icon: FaPhp, color: 'text-indigo-400' },
-  { name: 'Python', icon: FaPython, color: 'text-blue-400' },
-  { name: 'Node.js', icon: FaNodeJs, color: 'text-green-500' },
-  { name: 'Express.js', icon: SiExpress, color: 'text-gray-300' },
-  { name: 'Linux', icon: FaLinux, color: 'text-gray-300' },
-  { name: 'Windows', icon: FaWindows, color: 'text-blue-600' },
-  { name: 'SQL', icon: FaDatabase, color: 'text-purple-400' },
-  { name: 'MariaDB', icon: SiMariadb, color: 'text-blue-500' },
-  { name: 'React', icon: FaReact, color: 'text-cyan-400' },
-  { name: 'Vue.js', icon: FaVuejs, color: 'text-green-500' },
-  { name: 'Next.js', icon: SiNextdotjs, color: 'text-white' },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-teal-400' },
-  { name: 'Java', icon: FaJava, color: 'text-red-400' },
-  { name: 'Docker', icon: FaDocker, color: 'text-blue-400' },
-  { name: 'Kubernetes', icon: SiKubernetes, color: 'text-blue-500' },
-  { name: 'Git', icon: FaGitAlt, color: 'text-orange-500' },
-  { name: 'GitHub', icon: FaGithub, color: 'text-gray-300' },
-  { name: 'Arduino', icon: FaMicrochip, color: 'text-green-400' },
-  { name: 'Réseaux (Cisco)', icon: FaNetworkWired, color: 'text-blue-400' },
+  { name: 'HTML', icon: FaHtml5, color: 'text-[#E34F26]', glow: 'group-hover:shadow-[0_0_20px_rgba(227,79,38,0.2)] group-hover:border-[#E34F26]/30' },
+  { name: 'CSS', icon: FaCss3Alt, color: 'text-[#1572B6]', glow: 'group-hover:shadow-[0_0_20px_rgba(21,114,182,0.2)] group-hover:border-[#1572B6]/30' },
+  { name: 'JavaScript', icon: FaJs, color: 'text-[#F7DF1E]', glow: 'group-hover:shadow-[0_0_20px_rgba(247,223,30,0.2)] group-hover:border-[#F7DF1E]/30' },
+  { name: 'React', icon: FaReact, color: 'text-[#61DAFB]', glow: 'group-hover:shadow-[0_0_20px_rgba(97,218,251,0.2)] group-hover:border-[#61DAFB]/30' },
+  { name: 'Next.js', icon: SiNextdotjs, color: 'text-white', glow: 'group-hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:border-white/30' },
+  { name: 'Vue.js', icon: FaVuejs, color: 'text-[#4FC08D]', glow: 'group-hover:shadow-[0_0_20px_rgba(79,192,141,0.2)] group-hover:border-[#4FC08D]/30' },
+  { name: 'Node.js', icon: FaNodeJs, color: 'text-[#339933]', glow: 'group-hover:shadow-[0_0_20px_rgba(51,153,51,0.2)] group-hover:border-[#339933]/30' },
+  { name: 'Express.js', icon: SiExpress, color: 'text-gray-300', glow: 'group-hover:shadow-[0_0_20px_rgba(209,213,219,0.2)] group-hover:border-gray-300/30' },
+  { name: 'PHP', icon: FaPhp, color: 'text-[#777BB4]', glow: 'group-hover:shadow-[0_0_20px_rgba(119,123,180,0.2)] group-hover:border-[#777BB4]/30' },
+  { name: 'Python', icon: FaPython, color: 'text-[#3776AB]', glow: 'group-hover:shadow-[0_0_20px_rgba(55,118,171,0.2)] group-hover:border-[#3776AB]/30' },
+  { name: 'Java', icon: FaJava, color: 'text-[#007396]', glow: 'group-hover:shadow-[0_0_20px_rgba(0,115,150,0.2)] group-hover:border-[#007396]/30' },
+  { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-[#06B6D4]', glow: 'group-hover:shadow-[0_0_20px_rgba(6,182,212,0.2)] group-hover:border-[#06B6D4]/30' },
+  { name: 'SQL', icon: FaDatabase, color: 'text-[#336791]', glow: 'group-hover:shadow-[0_0_20px_rgba(51,103,145,0.2)] group-hover:border-[#336791]/30' },
+  { name: 'MariaDB', icon: SiMariadb, color: 'text-[#003545]', glow: 'group-hover:shadow-[0_0_20px_rgba(0,53,69,0.2)] group-hover:border-[#003545]/30' },
+  { name: 'Docker', icon: FaDocker, color: 'text-[#2496ED]', glow: 'group-hover:shadow-[0_0_20px_rgba(36,150,237,0.2)] group-hover:border-[#2496ED]/30' },
+  { name: 'Kubernetes', icon: SiKubernetes, color: 'text-[#326CE5]', glow: 'group-hover:shadow-[0_0_20px_rgba(50,108,229,0.2)] group-hover:border-[#326CE5]/30' },
+  { name: 'Git', icon: FaGitAlt, color: 'text-[#F05032]', glow: 'group-hover:shadow-[0_0_20px_rgba(240,80,50,0.2)] group-hover:border-[#F05032]/30' },
+  { name: 'GitHub', icon: FaGithub, color: 'text-white', glow: 'group-hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:border-white/30' },
+  { name: 'Linux', icon: FaLinux, color: 'text-[#FCC624]', glow: 'group-hover:shadow-[0_0_20px_rgba(252,198,36,0.2)] group-hover:border-[#FCC624]/30' },
+  { name: 'Windows', icon: FaWindows, color: 'text-[#0078D6]', glow: 'group-hover:shadow-[0_0_20px_rgba(0,120,214,0.2)] group-hover:border-[#0078D6]/30' },
+  { name: 'Réseaux', icon: FaNetworkWired, color: 'text-gray-400', glow: 'group-hover:shadow-[0_0_20px_rgba(156,163,175,0.2)] group-hover:border-gray-400/30' },
+  { name: 'Arduino', icon: FaMicrochip, color: 'text-[#00979D]', glow: 'group-hover:shadow-[0_0_20px_rgba(0,151,157,0.2)] group-hover:border-[#00979D]/30' },
 ];
 
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
-const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } } };
+const container = { hidden: {}, show: { transition: { staggerChildren: 0.05 } } };
+const item = { hidden: { opacity: 0, scale: 0.8 }, show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 200, damping: 15 } } };
 
 export default function Competences() {
   return (
-    <motion.section variants={container} initial="hidden" animate="show" className="space-y-10">
-      <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white">Compétences techniques</h2>
-        <p className="mt-2 text-gray-400 text-sm md:text-base">Technologies et outils que j’utilise régulièrement</p>
-      </div>
+    <div className="space-y-12">
+      
+      {/* Titre */}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center space-y-4"
+      >
+        <h2 className="text-3xl md:text-4xl font-extrabold">
+          <span className="bg-gradient-to-r from-white via-white to-neutral-500 bg-clip-text text-transparent">
+            Compétences{' '}
+          </span>
+          <span className="bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
+            Techniques
+          </span>
+        </h2>
+        
+        {/* Ligne décorative */}
+        <div className="flex items-center justify-center gap-3 py-2">
+          <div className="h-px w-12 bg-gradient-to-r from-transparent via-green-500/40 to-transparent" />
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.6)]" />
+          <div className="h-px w-12 bg-gradient-to-l from-transparent via-green-500/40 to-transparent" />
+        </div>
+      </motion.div>
 
-      <motion.div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+      <motion.div 
+        variants={container} 
+        initial="hidden" 
+        animate="show" 
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 max-w-6xl mx-auto"
+      >
         {skills.map(skill => {
           const Icon = skill.icon;
           return (
-            <HoverCard.Root key={skill.name} openDelay={100}>
-              <HoverCard.Trigger asChild>
-                <motion.div
-                  variants={item}
-                  whileHover={{ y: -6 }}
-                  whileTap={{ scale: 0.96 }}
-                  className="group rounded-2xl bg-[#121212] border border-neutral-800 p-5 flex flex-col items-center justify-center cursor-pointer transition-all hover:border-green-400/40 hover:shadow-[0_0_25px_rgba(0,255,144,0.15)] focus:outline-none"
-                >
-                  <Icon className={`text-4xl mb-3 ${skill.color}`} />
-                  <span className="text-sm font-semibold text-gray-200 text-center">{skill.name}</span>
-                </motion.div>
-              </HoverCard.Trigger>
-              <HoverCard.Content side="top" className="z-50 rounded-md bg-black px-3 py-2 text-xs text-gray-200 border border-neutral-700 shadow-lg">
+            <motion.div
+              key={skill.name}
+              variants={item}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              className={`
+                group relative flex flex-col items-center justify-center p-6
+                bg-neutral-900/40 backdrop-blur-md rounded-2xl
+                border border-neutral-800 transition-all duration-300
+                cursor-default overflow-hidden
+                ${skill.glow}
+              `}
+            >
+              {/* Subtle background gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              
+              <Icon className={`text-4xl sm:text-5xl mb-4 ${skill.color} transition-transform duration-300 group-hover:scale-110 drop-shadow-md`} />
+              
+              <span className="text-xs sm:text-sm font-semibold text-neutral-400 group-hover:text-white transition-colors text-center z-10">
                 {skill.name}
-              </HoverCard.Content>
-            </HoverCard.Root>
+              </span>
+            </motion.div>
           );
         })}
       </motion.div>
-    </motion.section>
+    </div>
   );
 }
