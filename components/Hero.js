@@ -29,8 +29,9 @@ export default function Hero() {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-black text-white px-4 sm:px-6 pt-24 pb-16">
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-black text-white px-4 sm:px-6 pt-24 pb-16 overflow-hidden">
       
+
       {/* Background Orbs */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-green-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />

@@ -10,7 +10,7 @@ export const Tabs = TabsPrimitive.Root;
 export const TabsList = ({ className, ...props }) => (
   <TabsPrimitive.List
     className={clsx(
-      'flex flex-col gap-3 w-56 p-4 bg-[#121212] rounded-xl shadow-lg border border-[#1f1f1f]',
+      'flex flex-row lg:flex-col gap-2 lg:gap-3 w-full lg:w-56 p-2 lg:p-4 bg-neutral-900/60 backdrop-blur-xl rounded-2xl border border-neutral-800 shadow-xl overflow-x-auto lg:overflow-visible no-scrollbar',
       className
     )}
     {...props}
@@ -21,16 +21,16 @@ export const TabsList = ({ className, ...props }) => (
 export const TabsTrigger = ({ className, ...props }) => (
   <TabsPrimitive.Trigger
     className={clsx(
-      // Style par défaut
-      'rounded-md px-4 py-3 text-left text-sm font-mono font-semibold text-gray-300 bg-[#1a1a1a]',
-      'hover:bg-[#2a2a2a] transition-all duration-300 cursor-pointer',
+      // Style par défaut et responsive
+      'relative min-w-[140px] sm:min-w-[150px] lg:min-w-0 text-center lg:text-left px-4 py-3 sm:py-3.5 rounded-xl text-sm font-mono font-semibold transition-all duration-300 flex items-center justify-center lg:justify-start cursor-pointer border-l-2 border-transparent text-neutral-400 hover:bg-white/5 hover:text-white',
       // État actif
-      'data-[state=active]:bg-green-400 data-[state=active]:text-black data-[state=active]:shadow-[0_0_12px_#00ff90]',
+      'data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500/20 data-[state=active]:to-transparent data-[state=active]:text-green-400 data-[state=active]:border-green-400',
       className
     )}
     {...props}
   />
 );
+
 
 // Contenu
 export const TabsContent = ({ className, ...props }) => (

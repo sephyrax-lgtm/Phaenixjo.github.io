@@ -77,7 +77,7 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
   ];
 
   return (
-    <section className="min-h-screen relative font-mono flex flex-col items-center pb-20">
+    <section className="min-h-screen relative font-mono flex flex-col items-center pb-20 overflow-hidden">
 
       {/* Orbes de fond ambiants (spécifique au layout) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-green-500/10 rounded-full blur-[150px] pointer-events-none -z-10" />
@@ -155,38 +155,21 @@ export default function Tab({ competences, notesSynthese, veilleTechnologique, c
           onValueChange={setActiveTab}
           className="w-full flex flex-col lg:flex-row gap-8"
         >
-          <div className="lg:w-64 flex-shrink-0">
+          <div className="lg:w-64 flex-shrink-0 w-full">
             <div className="sticky top-32">
-              <TabsList
-                className="
-                  flex flex-row lg:flex-col w-full gap-2 p-2
-                  bg-neutral-900/60 backdrop-blur-xl rounded-2xl 
-                  border border-neutral-800 shadow-xl overflow-x-auto lg:overflow-visible no-scrollbar
-                "
-              >
-                {tabs.map(tab => {
-                  const isActive = activeTab === tab.value;
-                  return (
-                    <TabsTrigger
-                      key={tab.value}
-                      value={tab.value}
-                      className={`
-                        relative min-w-[150px] lg:min-w-0 text-center lg:text-left
-                        px-4 py-3.5 rounded-xl text-sm font-semibold
-                        transition-all duration-300 flex items-center
-                        ${isActive
-                          ? 'bg-gradient-to-r from-green-500/20 to-transparent text-green-400 border-l-2 border-green-400'
-                          : 'text-neutral-400 hover:bg-white/5 hover:text-white border-l-2 border-transparent'
-                        }
-                      `}
-                    >
-                      {tab.label}
-                    </TabsTrigger>
-                  );
-                })}
+              <TabsList>
+                {tabs.map(tab => (
+                  <TabsTrigger
+                    key={tab.value}
+                    value={tab.value}
+                  >
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
               </TabsList>
             </div>
           </div>
+
 
           {/* Contenu de l'onglet actif */}
           <div className="flex-1 min-w-0">
